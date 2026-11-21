@@ -32,6 +32,8 @@ Both 11 and 22 give $3.77<S(q)<3.78$. Their square classes have two roots each, 
 
 Running the earlier-threshold comparison for every reduced class through modulus 120 gives precisely the printed square classes at all 27 listed moduli, plus $(6,1)$. Primes in class 1 modulo 3 are exactly those in class 1 modulo 6, and the two totients agree. With the coefficient from the prime integral, the absolute bound succeeds at the square classes of moduli 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 24 and 30 in that range.
 
+The published notebook for Theorem 4 starts its search at modulus 5 and skips moduli congruent to 2 modulo 4. Its last cell describes adding 2, 3 and 4 and doubling the odd moduli found by the search. Applying that listing rule to the earlier-threshold calculation gives 18 moduli from the search, six doubled moduli and the three small moduli. For odd $q$, each reduced class has a unique odd lift modulo $2q$. This recovers every class in the journal table and excludes $(6,1)$ because 3 was added separately. Equation (3) of the published paper includes 6 in the set for Theorem 4. The counting rule is a possible reconstruction of Table 1. The notebook itself computes Theorem 4. [Journal table](https://link.springer.com/article/10.1007/s40993-025-00640-y/tables/1) [Theorem 4 notebook](https://github.com/skyfishzhao/RH-and-Mertens-Theorems/blob/b040d47f1d1c0541701c089d0de76fdbd2604102/Computing%20the%20set%20Q%20in%20Theorem%204.ipynb) [Equation (3)](https://link.springer.com/article/10.1007/s40993-025-00640-y#Equ3)
+
 From the repository root, install the version of python-flint in the requirements file and run the following command. [Requirements](../requirements.txt)
 
 ~~~sh
