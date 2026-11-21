@@ -4,7 +4,7 @@ Under GRH, a calculation retaining the prime-square coefficient from Zhao’s eq
 
 ## Prime squares
 
-Let $C(q,a)$ count the square roots of the reduced class $a$ modulo $q$. After multiplying the prime count by the totient, the integral of its prime-square contribution has leading term $-C(q,a)\int_2^X\sqrt t/\log t\,dt$. Its coefficient after multiplication by $\log X/X^{3/2}$ is $-2C(q,a)/3$. Section 7 uses the magnitude $2C(q,a)$ for a different integral.
+Let $C(q,a)$ count the square roots of the reduced class $a$ modulo $q$. After multiplying the prime count by the totient, the integral of its prime-square contribution has leading term $-C(q,a)\int_2^X\sqrt t/\log t\thinspace dt$. Its coefficient after multiplication by $\log X/X^{3/2}$ is $-2C(q,a)/3$. Section 7 uses the magnitude $2C(q,a)$ for a different integral.
 
 For a nontrivial zero $\rho=1/2+i\gamma$ of a primitive factor inducing a character modulo $q$, the absolute coefficient of the oscillating term in equation (35), in the same normalisation, is $1/|\rho(\rho+1)|$. Write $S(q)$ for the sum of these coefficients, counting every zero of each factor with multiplicity. The triangle inequality proves eventual negativity if $S(q)<2C(q,a)/3$. Failure of this sufficient test leaves the sign open. For 11 and 22 the separate signed witnesses in the proof establish positive excursions at arbitrarily late inputs. [Signed witnesses](../PROOF.md#class-one-witness)
 
