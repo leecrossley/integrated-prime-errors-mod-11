@@ -1,0 +1,5 @@
+precision: 128 bits
+prime moduli verified by alternating sums: 1225 (13 to 10007)
+reduced classes at these prime moduli: 5745150
+family interval exclusions rechecked: 2765
+all endpoint signs and amplitudes verified

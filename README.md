@@ -1,40 +1,50 @@
-# Integrated prime-counting errors modulo 11 and 22
+# Integrated prime-counting errors for prime moduli
 
-The integrated prime-counting error changes sign arbitrarily far out in **every reduced residue class modulo 11 and 22**. This holds unconditionally and gives the classification for both moduli in Daniel R. Johnston's Problem 23. [Original problem, p. 9](https://arxiv.org/pdf/2407.03530#page=9)
+The integrated prime-counting error changes sign infinitely often in **every reduced class modulo every prime from 11 through 10,007**. The proof is unconditional. It covers 1,226 prime moduli and 5,745,160 classes. The same result holds at twice each of those primes. The separate modulus-11 proof and its original certificate are preserved here.
 
-For $\pi(t;q,a)$ the number of primes up to $t$ in class $a$, define
-
+Let $\pi(t;q,a)$ count primes up to $t$ in the class $a\bmod q$. For
 $$
-E_{q,a}(x)=\frac{\log x}{x^{3/2}}\int_2^x\bigl(\varphi(q)\pi(t;q,a)-\operatorname{li}(t)\bigr)\,dt.
+ E_{q,a}(x)=\frac{\log x}{x^{3/2}}\int_2^x
+ \bigl(\varphi(q)\pi(t;q,a)-\operatorname{li}(t)\bigr)\,dt,
 $$
-
-For each of the twenty reduced classes across the two moduli,
-
+every class in the stated range satisfies
 $$
-\liminf_{x\to\infty}E_{q,a}(x)<-\frac32,\qquad
-\limsup_{x\to\infty}E_{q,a}(x)>\frac14.
+ \liminf_{x\to\infty} E_{q,a}(x)<-\tfrac32,\qquad
+ \limsup_{x\to\infty} E_{q,a}(x)>\tfrac14 .
 $$
+Thus the conclusion concerns arbitrarily large inputs $x$ at each modulus. Under the generalized Riemann hypothesis (GRH) for the inducing functions at that modulus, each of the two strict excursion sets has positive lower logarithmic density.
 
-The theorem requires no assumption on the location or independence of the zeros. Under GRH for $\zeta(s)$ and the nine primitive nonprincipal Dirichlet $L$-functions modulo 11, both excursion sets also have positive lower logarithmic density. The modulus-22 statement follows because the paired classes contain the same odd primes.
+[Download the paper](range/paper.pdf) · [Read the full proof](range/PROOF.md) · [Certificate data](range/ordinates.tsv) · [Verification records](range/evidence)
 
-Tianyu Zhao's Table 1 lists five eventually negative classes for each modulus. Its equation (35) differs from the integral above only by the factor $\varphi(q)$. The positive excursions give the opposite answer for those ten entries. The comparison is with the table in the concluding section of that paper. [Equation (35) and Table 1](https://arxiv.org/html/2411.18903v2#S8)
+## Where the result extends
 
-[Read the proof and prior-work comparison](PROOF.md) · [Two-page research note](research-note.pdf) · [Numerical evidence](evidence)
+| Prime moduli | Classes | Conclusion and hypotheses |
+| --- | --- | --- |
+| $11\le q\le10\,007$ | Every reduced class | Both quantitative bounds above, unconditionally |
+| $11\le q\le400\,000$ | Class 1 and every quadratic nonresidue | Both signs arbitrarily far out, unconditionally |
+| $11\le q\le400\,000$ | Every quadratic residue | The normalized lower limit is below $-4/3$, unconditionally |
+| Every prime $q\ge11$ | Class 1 | Both signs if the inducing functions have no real zero in $(1/2,1)$. GRH suffices. |
+| Every prime $q\ge673$ | Every reduced class | Both quantitative bounds given the finite zero conditions up to height 16 in Theorem 3 |
+| Every prime $q\ge8104$ | Every reduced class | Under GRH there is a zero below height $9/20$ in absolute value. Central nonvanishing, one unshared positive zero that low and exclusion of its double give both signs. |
 
-## Reproduce the certificate
+At every prime from 17 through 10,007 a single well-placed zero certifies all reduced classes at once. For example, at 10,007 the proof locates a zero near height 0.000463485, isolates its character, and excludes its double across the family. The resulting oscillatory contribution exceeds 1.8856 in either direction about the class mean. At 13 the test uses four zeros and at 11 a separate explicit-formula calculation. The prime range uses Platt's published real-axis and central nonvanishing results. [Proof of the finite test](range/PROOF.md#2-a-finite-set-of-ordinates-controls-every-class) · [Platt, Theorems 7.1–7.2](https://arxiv.org/pdf/1305.3087#page=14)
 
-Use Python 3.10 or newer with the pinned package in an isolated environment.
+Daniel R. Johnston posed the classification question under GRH in 2024. Tianyu Zhao subsequently discussed the same integral under equation (35) and gave a table of eventually negative classes. Earlier work on finite-frequency tests, prime races and low zeros is credited in the proof. The all-class unconditional result for every sufficiently large prime remains open in this work. This preprint has a written analytic proof and reproducible interval calculations. Independent peer review and formal proof-assistant verification remain outstanding. [Johnston, Problem 23](https://arxiv.org/pdf/2407.03530#page=9) · [Zhao, §8](https://arxiv.org/html/2411.18903v2#S8) · [Prior work and remaining question](range/PROOF.md#7-scope-and-prior-work)
+
+## Reproduce the results
+
+Use Python 3.10 or newer. The two range programs check the same integer certificate by different formulas using FLINT's outward-rounded ball arithmetic. The second uses an elementary alternating expansion over whole intervals for the family nonvanishing tests. The programs also accept an inclusive subrange such as `--start 10007 --stop 10007`.
 
 ```sh
 python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install -r requirements.txt
+python range/verify_range.py --bits 112
+python range/crosscheck_range.py --bits 128
 python verify.py --bits 128
 python crosscheck.py --bits 160
 python real_axis.py --bits 128
 shasum -a 256 -c SHA256SUMS
 ```
 
-Two programs validate all 850 positive zero brackets and all twenty signed inequalities for the critical-line profile at modulus 11. The first bounds the omitted zeros using logarithmic derivatives at one. The second uses Hurwitz zeta, an upper bound from sieving prime powers through two million, and a separate prime-side calculation for class 9. A third program certifies nonvanishing on a whole real interval using finite character sums. All three use FLINT's outward-rounded ball arithmetic. The proof handles both possibilities for zeros off the critical line. If their contributions cancel for a class, recurrence gives both signs. If a pole survives, Landau's theorem gives still larger excursions. [First run](evidence/dirichlet-128.txt) · [Second run](evidence/hurwitz-160.txt) · [Real-axis check](evidence/real-axis-128.txt) · [FLINT documentation](https://flintlib.org/doc/acb_dirichlet.html)
-
-This is a research preprint with a written proof and reproducible interval certificates. It has not been peer reviewed.
+The three root-level programs check the original modulus-11 result, including 850 positive ordinate brackets, twenty signed inequalities and a real-axis exclusion. The original version also contains the comparison with the entries for 11 and 22 in Zhao's Table 1. [Modulus-11 proof](PROOF.md) · [Original two-page note](research-note.pdf) · [Modulus-11 verification records](evidence) · [First release](https://github.com/leecrossley/integrated-prime-errors-mod-11/releases/tag/v1.0.0)
