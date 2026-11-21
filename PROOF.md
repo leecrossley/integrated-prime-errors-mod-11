@@ -62,7 +62,7 @@ $\int_2^x (x-v)T'(v)/(v\log^2 v)\thinspace dv$. Integrating by parts once more a
 
 ## 2. Certifying the contribution of the zeros
 
-The data give 850 disjoint positive-ordinate brackets, disjoint within each character. Each bracket has the form $[n/d,(n+1)/d]$ with $d=402653184$. Character labels are Conrey labels $1,\ldots,10$. Equivalently, for $l=2^k\bmod 11$ define $\chi_l(2^j)=\exp(2\pi i k j/10)$. For the principal label the zeros are those of $\zeta$. Both programs check every bracket from its endpoints. The input need only contain a subset of the zeros.
+The data give 850 disjoint positive-ordinate brackets, disjoint within each character. Each bracket has the form $[n/d,(n+1)/d]$ with $d=402653184$. Character labels are Conrey labels $1,\ldots,10$. Equivalently, for $l=2^k\bmod 11$ define $\chi_l(2^j)=\exp(2\pi i k j/10)$. For the principal label the zeros are those of $\zeta$. Both programs check every bracket from its endpoints. The input need only contain a subset of the zeros. For example, the quadratic character (label 10) has certified Hardy sign changes in $(106.69829648,106.69829649)$ and $(106.99570265,106.99570266)$, both disjoint from the selected brackets. The mass bound covers these zeros along with the rest of the omitted contribution. [Endpoint check](crosscheck.py)
 
 Put $s=1/2+it$, let $f$ be the primitive conductor and let $\kappa$ be the parity. By the functional equation the completed value $(f/\pi)^{(s+\kappa)/2}\Gamma((s+\kappa)/2)L(s,\chi^\ast)$ lies on a fixed line through the origin as $t$ varies. Rotating it by the conjugate of a nonzero central value puts it on the real axis up to a positive factor. Opposite strict signs at the endpoints therefore certify at least one zero. Select one zero per bracket and include its conjugate in the conjugate character. The disjointness within each character and the signs of the ordinates prevent double counting.
 
@@ -199,6 +199,12 @@ F_9(\log v)=
 $$
 
 Here $M_9(v)$ is just a finite prime-power sum. The constants are computed at one and two. In particular $c_5=-\gamma_E-\sum_{\chi\ne1}\overline{\chi(5)}L'(1,\chi)/L(1,\chi)$. Evaluation gives $-2.353<F_9(\log31)<-2.352$ and $0.4974<F_9(\log21000)<0.4976$. Both results also lie inside the enclosures obtained from the zeros.
+
+### Class-one witness
+
+Under GRH let $H$ be the product of $\xi$ and the nine entire completed primitive Dirichlet functions for the nonprincipal characters modulo 11. Write $h=H'/H$. The nontrivial zeros of $H$, counted with multiplicity, are invariant under $\rho\mapsto1-\rho$. The difference of the Hadamard logarithmic derivatives gives $h(1)-h(2)=\sum_\rho [(1-\rho)^{-1}-(2-\rho)^{-1}]=\sum_\rho 1/[\rho(\rho+1)]$. The differences converge absolutely, since each summand is $O(|\rho|^{-2})$. For class 1 all character weights are one and there are two square roots of 1. Its square term is therefore $-(2/3)2=-4/3$. The limiting profile at time zero is $F_1(0)=-4/3-h(1)+h(2)$, strictly between 1.65147046110676 and 1.65147046110677. This calculation uses no tabulated ordinates. Uniform almost periodicity gives arbitrarily late returns as close to this value as desired. [Arithmetic witness](crosscheck.py)
+
+The normalised prime integral at a finite input can have a different sign from its limiting profile. At $x=21000$ one has $-0.264084655513<E_{11,9}(x)<-0.264084655512$, while $F_9(\log x)$ is about $0.49748568637794$. The verifier evaluates the integral of the prime count as $10\sum_{p<x,\,p\equiv9\bmod11}(x-p)$ and subtracts the change in $t\,\mathrm{li}(t)-\mathrm{li}(t^2)$ from 2 to $x$. [Verification output](evidence/hurwitz-160.txt)
 
 ## 7. Relation to earlier work
 

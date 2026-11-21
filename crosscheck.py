@@ -59,8 +59,63 @@ def arithmetic_profile(v):
             - arb(4)/3)
 
 
+def class_one_witness():
+    """Evaluate the class-one limiting profile from completed logarithmic derivatives at 1 and 2."""
+    half = arb(1) / 2
+    zeta_at_two = acb_series([2, 1], 2).zeta()
+    # The two derivatives of log xi share the constant from its power of pi.
+    at_one = 1 + arb.const_euler() + half.digamma() / 2
+    at_two = arb(3) / 2 + (zeta_at_two[1] / zeta_at_two[0]).real + arb(1).digamma() / 2
+    for label in range(2, 11):
+        chi = dirichlet_char(11, label)
+        parity = chi.parity()
+
+        def logarithmic_derivative(s):
+            jet = acb_series([s, 1], 2).dirichlet_l(chi)
+            return (jet[1] / jet[0]).real + (arb(s + parity) / 2).digamma() / 2
+
+        at_one += logarithmic_derivative(1)
+        at_two += logarithmic_derivative(2)
+    value = -arb(4) / 3 - at_one + at_two
+    print("Class-one limiting profile at time zero:", value.str(18))
+    if not arb("1.65147046110676") < value or not value < arb("1.65147046110677"):
+        raise ArithmeticError("Profile lies outside the quoted interval.")
+
+
+def finite_prime_integral():
+    x = 21_000
+    prime_integral = 10 * sum(x - p for p, n in prime_powers(x) if n == p and p % 11 == 9)
+
+    def antiderivative(t):
+        log_t = arb(t).log()
+        return t * log_t.ei() - (2 * log_t).ei()
+
+    error = prime_integral - (antiderivative(x) - antiderivative(2))
+    normalised = arb(x).log() * error / (x * arb(x).sqrt())
+    print("Actual class-nine integral at 21000:", normalised.str(18))
+    if not arb("-0.264084655513") < normalised or not normalised < arb("-0.264084655512"):
+        raise ArithmeticError("Prime integral lies outside the quoted interval.")
+
+
+def check_unlisted_pair(denominator, selected):
+    """Check two omitted ordinates of the quadratic character without changing the selected list."""
+    chi = dirichlet_char(11, 10)
+    scale = 10**8
+    for lo in (10669829648, 10699570265):
+        hi = lo + 1
+        for n in selected:
+            if not (hi * denominator <= n * scale or (n+1) * scale <= lo * denominator):
+                raise ArithmeticError("Extra bracket overlaps the selected certificate")
+        left = chi.hardy_z(arb(lo)/scale)
+        right = chi.hardy_z(arb(hi)/scale)
+        require(left.imag.contains(0) and right.imag.contains(0) and left.real*right.real < 0,
+                "Hardy sign change in the extra quadratic bracket is unresolved")
+    print("Two further quadratic Hardy sign changes lie outside the 850 selected brackets.")
+
+
 def crosscheck():
     den, rows = read_brackets()
+    check_unlisted_pair(den, rows[10])
     times = witnesses()
     half = arb(1)/2
     eta = arb(3).sqrt()/2
@@ -119,3 +174,5 @@ def crosscheck():
 if __name__ == "__main__":
     configure()
     crosscheck()
+    class_one_witness()
+    finite_prime_integral()
