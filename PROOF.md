@@ -200,6 +200,12 @@ $$
 
 Here $M_9(v)$ is just a finite prime-power sum. The constants are computed at one and two. In particular $c_5=-\gamma_E-\sum_{\chi\ne1}\overline{\chi(5)}L'(1,\chi)/L(1,\chi)$. Evaluation gives $-2.353<F_9(\log31)<-2.352$ and $0.4974<F_9(\log21000)<0.4976$. Both results also lie inside the enclosures obtained from the zeros.
 
+### Class-one witness
+
+Under GRH let $H$ be the product of $\xi$ and the nine entire completed primitive Dirichlet functions for the nonprincipal characters modulo 11. Write $h=H'/H$. The nontrivial zeros of $H$, counted with multiplicity, are invariant under $\rho\mapsto1-\rho$. The difference of the Hadamard logarithmic derivatives gives $h(1)-h(2)=\sum_\rho [(1-\rho)^{-1}-(2-\rho)^{-1}]=\sum_\rho 1/[\rho(\rho+1)]$. The differences converge absolutely, since each summand is $O(|\rho|^{-2})$. For class 1 all character weights are one and there are two square roots of 1. Its square term is therefore $-(2/3)2=-4/3$. The limiting profile at time zero is $F_1(0)=-4/3-h(1)+h(2)$, strictly between 1.65147046110676 and 1.65147046110677. This calculation uses no tabulated ordinates. Uniform almost periodicity gives arbitrarily late returns as close to this value as desired. [Arithmetic witness](crosscheck.py)
+
+The normalised prime integral at a finite input can have a different sign from its limiting profile. At $x=21000$ one has $-0.264084655513<E_{11,9}(x)<-0.264084655512$, while $F_9(\log x)$ is about $0.49748568637794$. The verifier evaluates the integral of the prime count as $10\sum_{p<x,\,p\equiv9\bmod11}(x-p)$ and subtracts the change in $t\,\mathrm{li}(t)-\mathrm{li}(t^2)$ from 2 to $x$. [Verification output](evidence/hurwitz-160.txt)
+
 ## 7. Relation to earlier work
 
 Daniel R. Johnston posed the all-moduli eventual-negativity classification at the 2024 Comparative Prime Number Theory Symposium. His earlier theorem concerns the ordinary prime-counting function. For the progression problem the stated hypothesis is GRH. [Problem 23, p. 9](https://arxiv.org/pdf/2407.03530#page=9) · [Johnston's original paper](https://doi.org/10.4153/S0008439522000212)

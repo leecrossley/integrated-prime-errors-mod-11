@@ -16,3 +16,5 @@ class  upper bound at minus time  lower bound at plus time
 prime-side value for class 9 at log(31): [-2.3522032215423 +/- 4.00e-14]
 prime-side value for class 9 at log(21000): [0.49748568637794 +/- 4.19e-15]
 all twenty inequalities and both prime-side checks verified
+Class-one limiting profile at time zero: [1.65147046110676550 +/- 4.22e-18]
+Actual class-nine integral at 21000: [-0.264084655512270890 +/- 4.37e-19]
