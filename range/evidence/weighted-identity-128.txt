@@ -1,0 +1,2 @@
+precision: 128 bits
+all ten weighted identities agree with the 850-bracket sums within 0.154

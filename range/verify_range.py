@@ -136,6 +136,11 @@ def verify_uniform_constants():
     upper_d = (2*(2*q).log() + 2)/q + logq/(q**2-1)
     require(smoothing_error < 1 and upper_d < 1
             and q/2 - 8*logq - arb(16)/3 > 0, "class-one bounds failed")
+    parity_gain = arb(2).log() - arb(1)/2
+    require((q-1)*parity_gain - 8*logq - 5 > 0 and parity_gain > 8/q
+            and arb(2).log() > arb(2)/3 and arb(1)/2-1/q**3 > arb(2)/5
+            and arb(64)/25*logq > 5 and q/(40*logq) > 2,
+            "inverse-class inequalities failed")
 
     # Compactly supported transform in the low-zero theorem.
     q = arb(8104)
