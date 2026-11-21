@@ -1,0 +1,12 @@
+{
+  "title": "Integrated prime-counting errors in arithmetic progressions",
+  "creators": [
+    {
+      "name": "Crossley, Lee"
+    }
+  ],
+  "description": "<p>The collection contains the unconditional sign-change theorem for all reduced classes at prime moduli from 11 through 10,009, the prime-profile paper and the combined-prime excursion test. The unbounded positive-proportion theorem and the twelve-prime test use Dirichlet GRH.</p><p><a href=\"https://github.com/leecrossley/integrated-prime-errors-mod-11/blob/36c4c770b0c74af21017a983b0c18434aaaddf62/RESULTS.md\">Proofs and verification</a>.</p>",
+  "license": "cc-by-4.0",
+  "upload_type": "software",
+  "version": "collection-2026-11-21"
+}
