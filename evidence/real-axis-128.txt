@@ -1,0 +1,5 @@
+working precision: 128 bits
+nonprincipal characters checked: 9
+closed intervals covering [1/2,1]: 64
+terms in each character sum: n <= 11000
+Re L(s,chi) > 1/20 throughout [1/2,1] for all nine characters
