@@ -2,6 +2,8 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24410803.svg)](https://doi.org/10.5281/zenodo.24410803)
 
+**Research collection.** [Browse all results on integrated prime-counting errors in progressions](RESULTS.md), including proofs, certificates and original citations.
+
 The integrated prime-counting error changes sign infinitely often in **every reduced class modulo every prime from 11 through 10,007**. The proof is unconditional. It covers 1,226 prime moduli and 5,745,160 classes. The same result holds at twice each of those primes. The separate modulus-11 proof and its original certificate are preserved here.
 
 Let $`\pi(t;q,a)`$ count primes up to $`t`$ in the class $`a\bmod q`$. For
