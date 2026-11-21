@@ -97,8 +97,25 @@ def finite_prime_integral():
         raise ArithmeticError("Prime integral lies outside the quoted interval.")
 
 
+def check_unlisted_pair(denominator, selected):
+    """Check two omitted ordinates of the quadratic character without changing the selected list."""
+    chi = dirichlet_char(11, 10)
+    scale = 10**8
+    for lo in (10669829648, 10699570265):
+        hi = lo + 1
+        for n in selected:
+            if not (hi * denominator <= n * scale or (n+1) * scale <= lo * denominator):
+                raise ArithmeticError("Extra bracket overlaps the selected certificate")
+        left = chi.hardy_z(arb(lo)/scale)
+        right = chi.hardy_z(arb(hi)/scale)
+        require(left.imag.contains(0) and right.imag.contains(0) and left.real*right.real < 0,
+                "Hardy sign change in the extra quadratic bracket is unresolved")
+    print("Two further quadratic Hardy sign changes lie outside the 850 selected brackets.")
+
+
 def crosscheck():
     den, rows = read_brackets()
+    check_unlisted_pair(den, rows[10])
     times = witnesses()
     half = arb(1)/2
     eta = arb(3).sqrt()/2

@@ -1,4 +1,5 @@
 working precision: 160 bits
+Two further quadratic Hardy sign changes lie outside the 850 selected brackets.
 positive ordinates rechecked using Hurwitz zeta: 850
 prime powers sieved through: 2000000
 upper estimate for unretained mass: [0.16928294 +/- 6.16e-9]
