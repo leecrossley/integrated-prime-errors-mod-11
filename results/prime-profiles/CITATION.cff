@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "Cite the collection release listed under references for this paper."
+title: "Sign changes in many residue classes"
+authors:
+  - family-names: Crossley
+    given-names: Lee
+license: CC-BY-4.0
+repository-code: https://github.com/leecrossley/integrated-prime-errors-mod-11/tree/36c4c770b0c74af21017a983b0c18434aaaddf62/results/prime-profiles
+type: software
+references:
+  - type: software
+    title: "Integrated prime-counting errors for prime moduli"
+    authors:
+      - family-names: Crossley
+        given-names: Lee
+    version: "v2.1.1"
+    doi: 10.5281/zenodo.24425209
+    url: https://github.com/leecrossley/integrated-prime-errors-mod-11/releases/tag/v2.1.1
+  - type: software
+    title: "Integrated prime-counting errors in arithmetic progressions"
+    authors:
+      - family-names: Crossley
+        given-names: Lee
+    version: "collection-2026-11-21"
+    doi: 10.5281/zenodo.24426575
+    url: https://github.com/leecrossley/integrated-prime-errors-mod-11/releases/tag/collection-2026-11-21

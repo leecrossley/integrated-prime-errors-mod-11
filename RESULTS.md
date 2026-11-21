@@ -17,3 +17,12 @@ Run `sh verify-collection.sh` from the repository root to check the result manif
 GitHub shows the current status and subsequent replies at each original link. Review notes posted from the author’s account record checks made by or for the author. They are not independent referee reports.
 
 - [integrated-prime-errors-mod-11 issue 4](https://github.com/leecrossley/integrated-prime-errors-mod-11/issues/4) — v2.0.0: state the status of Alpöge's GRH result, and make the Lean check enforce its axioms
+
+## Edition DOIs
+
+Each DOI identifies a fixed release. The final column identifies the archive with the proof files in this revision. A shared release can contain several papers. The collection as archived on 21 November 2026 is available at [10.5281/zenodo.24426575](https://doi.org/10.5281/zenodo.24426575).
+
+| Result | Published release | Version DOI | Current proof files |
+| --- | --- | --- | --- |
+| [Integrated prime-counting errors for prime moduli](README.md) | [v2.1.1](https://github.com/leecrossley/integrated-prime-errors-mod-11/releases/tag/v2.1.1) | [10.5281/zenodo.24425209](https://doi.org/10.5281/zenodo.24425209) | Same edition |
+| [Sign changes in many residue classes](results/prime-profiles/README.md) | [v2.1.1](https://github.com/leecrossley/integrated-prime-errors-mod-11/releases/tag/v2.1.1) | [10.5281/zenodo.24425209](https://doi.org/10.5281/zenodo.24425209) | [10.5281/zenodo.24426575](https://doi.org/10.5281/zenodo.24426575) |

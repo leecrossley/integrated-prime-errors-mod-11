@@ -2,6 +2,8 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24410803.svg)](https://doi.org/10.5281/zenodo.24410803)
 
+Published edition 2.1.1 has DOI [10.5281/zenodo.24425209](https://doi.org/10.5281/zenodo.24425209). The [edition index](RESULTS.md#edition-dois) lists the other papers.
+
 **Research collection.** [Browse all results on integrated prime-counting errors in progressions](RESULTS.md), including proofs, certificates and original citations.
 
 The integrated prime-counting error changes sign infinitely often in **every reduced class modulo every prime from 11 through 10,009**. The proof is unconditional. It covers 1,227 prime moduli and 5,755,168 classes. The same result holds at twice each of those primes. The separate modulus-11 proof and its original certificate are preserved here.
