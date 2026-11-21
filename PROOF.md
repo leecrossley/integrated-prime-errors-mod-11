@@ -95,7 +95,7 @@ $$
       +2\Re\bigl(L'(1,\chi)/L(1,\chi)\bigr).
 $$
 
-Under GRH this recovers the zero-mass identity in Lemma 3.5 of Fiorilli and Martin. Formula (3) supplies the upper bound required here without GRH. Because $|\rho+1|\ge|\rho|$, the error in (1) after the selected pairs is at most $V-2\sum_{\rm selected}(1/4+\gamma^2)^{-1}$. This bounds every remaining term of the critical-line profile, including unselected multiplicities and skipped ordinates at any height. The first computation gives a remainder less than $0.154$. It evaluates the logarithmic derivatives with Taylor coefficients at one. [Fiorilli and Martin, Lemma 3.5](https://arxiv.org/pdf/0912.4908#page=27)
+Under GRH this recovers the zero-mass identity in Lemma 3.5 of Fiorilli and Martin. Formula (3) supplies the upper bound required here without GRH. Because $|\rho+1|\ge|\rho|$, the error in (1) after the selected pairs is at most $V-2\sum_{\rm sele{}cted}(1/4+\gamma^2)^{-1}$. This bounds every remaining term of the critical-line profile, including unselected multiplicities and skipped ordinates at any height. The first computation gives a remainder less than $0.154$. It evaluates the logarithmic derivatives with Taylor coefficients at one. [Fiorilli and Martin, Lemma 3.5](https://arxiv.org/pdf/0912.4908#page=27)
 
 Each row below gives a certified upper bound at the first time and a certified lower bound at the second. These are values of the limiting profile $F_a(u)$, including the entire remainder. In particular, $u=0$ is a legitimate argument of the profile. Section 3 explains why it gives information about arbitrarily large $x$.
 
