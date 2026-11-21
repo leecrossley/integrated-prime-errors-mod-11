@@ -2,7 +2,7 @@
 
 Lee Crossley · 21 November 2026
 
-For a prime $`q`$ and a reduced class $`a`$, let $`E_{q,a}(x)`$ be the integral from $`2`$ to $`x`$ of $`(q-1)\pi(t;q,a)-\operatorname{li}(t)`$, multiplied by $`(\log x)/x^{3/2}`$. Daniel Johnston asked which classes eventually have negative integral. [Problem 23](https://arxiv.org/pdf/2407.03530#page=9) · [Zhao's equation (35) and Table 1](https://arxiv.org/html/2411.18903v2#S8)
+For a prime $`q`$ and a reduced class $`a`$, let $`E_{q,a}(x)`$ be the integral from $`2`$ to $`x`$ of $`(q-1)\pi(t;q,a)-\mathrm{li}(t)`$, multiplied by $`(\log x)/x^{3/2}`$. Daniel Johnston asked which classes eventually have negative integral. [Problem 23](https://arxiv.org/pdf/2407.03530#page=9) [Zhao's equation (35) and Table 1](https://arxiv.org/html/2411.18903v2#S8)
 
 **Every class through modulus 10,009.** For each prime from 11 through 10,009, in every reduced class, $`\liminf E_{q,a}<-3/2`$ and $`\limsup E_{q,a}>1/4`$. This also holds at twice each prime. There are 1,227 prime moduli and 5,755,168 classes before lifting. The additional prime contributes 10,008 classes. Its zero lies in $`(402441651\pm2)/2^{44}`$ for Conrey character 9959. Two numerical implementations check the bracket and its double. This finite-modulus theorem uses Platt's published real-axis results and works independently of Dirichlet GRH. [Range proof](../../range/PROOF.md) · [Certificate](../../range/ordinates.tsv) · [Platt](https://arxiv.org/abs/1305.3087)
 
