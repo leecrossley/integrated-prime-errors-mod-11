@@ -15,7 +15,7 @@ from flint import acb, arb, ctx, dirichlet_char
 
 DENOMINATOR = 2**44
 FIRST_PRIME = 13
-LAST_PRIME = 10_007
+LAST_PRIME = 10_009
 
 
 def require(condition, message):

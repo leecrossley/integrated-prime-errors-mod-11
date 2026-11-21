@@ -11,14 +11,14 @@ Let $`\pi(t;q,a)`$ count primes $`p\le t`$ congruent to $`a\bmod q`$. Write
 
 We use the ordinary logarithmic integral. Changing its additive constant has no effect on the conclusions. GRH for a modulus means the critical-line assertion for the primitive functions inducing its characters, including the Riemann zeta function. Each assertion concerns one class at a time.
 
-**Theorem 1.** For every prime $`11\le q\le 10\thinspace{}007`$ and every reduced class $`a\bmod q`$,
+**Theorem 1.** For every prime $`11\le q\le 10\thinspace{}009`$ and every reduced class $`a\bmod q`$,
 
 ```math
  \liminf_{x\to\infty} E_{q,a}(x)<-\tfrac32,\qquad
  \limsup_{x\to\infty} E_{q,a}(x)>\tfrac14. \tag{1}
 ```
 
-This is unconditional. The same holds at $`2q`$ for every reduced class. Under GRH for that modulus, each of the two strict excursion sets in (1) has positive lower logarithmic density. There are 1,226 prime moduli and 5,745,160 classes before adjoining the odd lifts.
+This is unconditional. The same holds at $`2q`$ for every reduced class. Under GRH for that modulus, each of the two strict excursion sets in (1) has positive lower logarithmic density. There are 1,227 prime moduli and 5,755,168 classes before adjoining the odd lifts.
 
 **Theorem 2.** For every prime $`q\ge11`$, class $`1\bmod q`$ takes both signs arbitrarily far out if the inducing functions have no real zero in $`(1/2,1)`$. In particular GRH suffices, with no assumption on central zeros or relations among ordinates. For $`11\le q\le400\thinspace{}000`$, the conclusion for class 1 is unconditional. In the same finite range, unconditionally, every quadratic nonresidue has $`\liminf E_{q,a}<0<\limsup E_{q,a}`$ and every quadratic residue has $`\liminf E_{q,a}<-4/3`$.
 
@@ -71,9 +71,9 @@ The certificate proves $`B>19/12`$. The upper excursion exceeds $`-4/3+19/12=1/4
 
 ## 3. What the finite checks prove
 
-The [certificate](ordinates.tsv) records the prime, Conrey character label, integer $`m`$ and dimension $`d`$. Each selected positive ordinate lies strictly between $`(m-2)/2^{44}`$ and $`(m+2)/2^{44}`$. Four ordinates suffice at 13. One suffices for each prime from 17 through 10,007. At 17 the dimension is four, at 23 it is 27 and at every other prime from 17 onward in the range it is three. At dimension three the only harmonic to exclude besides the chosen ordinate is its double. At 11 use the [separate certificate](../PROOF.md). For $`2q`$ there is exactly one reduced lift $`b`$ of each $`a`$. The lists of odd primes coincide and the normalized difference is $`-h1_{a=2}(x-2)\log x/x^{3/2}\to0`$.
+The [certificate](ordinates.tsv) records the prime, Conrey character label, integer $`m`$ and dimension $`d`$. Each selected positive ordinate lies strictly between $`(m-2)/2^{44}`$ and $`(m+2)/2^{44}`$. Four ordinates suffice at 13. One suffices for each prime from 17 through 10,009. At 17 the dimension is four, at 23 it is 27 and at every other prime from 17 onward in the range it is three. At dimension three the only harmonic to exclude besides the chosen ordinate is its double. At 11 use the [separate certificate](../PROOF.md). For $`2q`$ there is exactly one reduced lift $`b`$ of each $`a`$. The lists of odd primes coincide and the normalized difference is $`-h1_{a=2}(x-2)\log x/x^{3/2}\to0`$.
 
-For example, at $`q=10\thinspace{}007`$ the selected Conrey label is 8996 and the bracket is $`(8\thinspace{}153\thinspace{}712\thinspace{}093\pm2)/2^{44}`$. The ordinate is within $`2\times10^{-10}`$ of 0.000463485. Only this character can vanish there, and every inducing function is nonzero at twice that ordinate. With $`d=3`$ the certified amplitude exceeds 1.8856 for all 10,006 classes.
+For example, at $`q=10\thinspace{}007`$ the selected Conrey label is 8996 and the bracket is $`(8\thinspace{}153\thinspace{}712\thinspace{}093\pm2)/2^{44}`$. The ordinate is within $`2\times10^{-10}`$ of 0.000463485. Only this character can vanish there, and every inducing function is nonzero at twice that ordinate. With $`d=3`$ the certified amplitude exceeds 1.8856 for all 10,006 classes. At the next prime 10,009, character 9959 gives the bracket $(402441651\pm2)/2^{44}$ with dimension three and amplitude greater than 1.8856 in all 10,008 classes. [Checks and proof for the added modulus](../results/prime-profiles/)
 
 Both verifiers reconstruct the list of primes. Both enclose the endpoints at each target, exclude all *other characters* at that target, check every required combination against the whole family, and prove the strict amplitude bound. They require no completeness assertion for a list of zeros. Multiple zeros of the selected character inside its own target interval cause no problem. The checks on linear combinations apply to any selection of one zero from each bracket.
 

@@ -1,0 +1,376 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[a4paper,top=22mm,bottom=22mm,left=23mm,right=23mm]{geometry}
+\usepackage{amsmath,amssymb,xcolor,hyperref}
+\definecolor{ink}{RGB}{20,63,69}
+\hypersetup{colorlinks=true,urlcolor=ink,linkcolor=ink,pdfauthor={Lee Crossley},pdftitle={Sign changes in many residue classes at every prime modulus},pdfsubject={Research note on integrated prime-counting errors}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus .5pt minus .5pt}
+\setlength{\abovedisplayskip}{6pt plus 1pt minus 1pt}
+\setlength{\belowdisplayskip}{6pt plus 1pt minus 1pt}
+\setlength{\emergencystretch}{1.8em}
+\newcommand{\li}{\operatorname{li}}
+\newcommand{\FP}{\operatorname{FP}}
+\newcommand{\kb}{\overline{\chi}}
+\newcommand{\head}[1]{\section*{\color{ink}#1}}
+\raggedbottom
+\begin{document}
+\begin{center}
+{\Large\bfseries Sign changes in many residue classes\\[2pt]at every prime modulus\par}
+\vspace{6pt}
+{Lee Crossley \quad$\cdot$\quad Johnston's Problem 23 \quad$\cdot$\quad 21 November 2026}
+\end{center}
+
+Let \(q\) be prime, \(h=q-1\), and let \(\pi(t;q,a)\) count primes \(p\le t\) in
+the nonzero residue class \(a\bmod q\). Write
+\[
+ E_{q,a}(x)=\frac{\log x}{x^{3/2}}\int_2^x\bigl(h\pi(t;q,a)-\li(t)\bigr)\,dt .
+\]
+The question is whether \(E_{q,a}\) changes sign infinitely often in every class at every
+prime \(q\ge11\). We give a partial answer for unbounded \(q\).
+
+\textbf{Theorem.} Assume the Riemann hypothesis for the primitive Dirichlet functions
+inducing the characters involved, including \(\zeta\). There are absolute
+\(\delta,\eta>0\) such that, for every prime \(q\ge11\), at least \(\delta(q-1)\)
+distinct classes satisfy
+\begin{equation}
+ \liminf_{x\to\infty}E_{q,a}(x)<-\eta\sqrt{q\log q},
+ \qquad \limsup_{x\to\infty}E_{q,a}(x)>\eta\sqrt{q\log q}.
+\end{equation}
+For all sufficiently large primes the assertion holds separately for a positive
+fraction of the squares and of the nonsquares. More generally, for fixed \(d\mid q-1\),
+it holds in every coset of the subgroup of index \(d\) as \(q\) increases, with
+constants depending on \(d\). Across all classes at a prime \(q\), at most
+\(O((\log q)^2)\) can fail to have a strictly negative lower limit.
+
+A particular class also has both signs for every prime \(q\ge11\). Take \(a=2\) if
+\(q\equiv1\bmod3\), and \(a=4\) if \(q\equiv2\bmod3\). For \(q\ge10\,000\)
+its upper limit exceeds \(q/10\) and its lower limit is below \(-\sqrt q/60\).
+The same congruence gives a growing list of explicit powers of two on page 6.
+
+The argument allows central zeros, coincident zeros and rational relations among
+their heights. The existence constants in (1) are not evaluated. The Dirichlet
+critical-line assertion is precisely the upstream input audited by Sutherland.
+The present argument is a written proof awaiting independent review.
+\href{https://math.mit.edu/~drew/grh/}{Upstream verification.}
+
+\head{The profile and its recurrence}
+Let \(C_a\) count the square roots of \(a\bmod q\), put \(B_a=2C_a/3\), and use
+\(\chi^*\) for the primitive inducing character. For \(\rho=\tfrac12+i\gamma\)
+ranging over all nontrivial zeros of its function with multiplicity, set
+\begin{equation}
+ F_a(u)=-B_a-\sum_{\chi\bmod q}\kb(a)\sum_{\rho}
+           \frac{e^{i\gamma u}}{\rho(\rho+1)} .
+\end{equation}
+The first Riesz mean explicit formula, removal of prime powers and partial summation
+give \(E_{q,a}(x)=F_a(\log x)+o_q(1)\).
+The zero count gives absolute uniform convergence in (2). Every strict value of
+this continuous almost periodic function recurs to arbitrary precision at arbitrarily
+large times. Thus a pair of strict profile values yields arbitrarily large inputs
+of both signs. After decreasing the margins slightly, the two sets of inputs each
+have positive lower logarithmic density for fixed \(q,a\). The fixed-modulus
+explicit formula and density argument are in
+\href{https://github.com/leecrossley/integrated-prime-errors-mod-11/blob/v2.0.0/range/PROOF.md}{the previous paper, \S1}.
+
+\newpage
+\head{Two arithmetic evaluations of the same profile}
+Use the representatives \(1\le a,b<q\) with \(ab\equiv1\bmod q\), and suppose
+\(a\ne\pm1\bmod q\). Write \(\Lambda\) for the von Mangoldt function and define
+\[
+ \begin{aligned}
+ D_a(s)&=-\sum_{\chi\bmod q}\kb(a)\frac{L'}{L}(s,\chi^*)
+             =\sum_{n\ge1}\frac{w_a(n)}{n^s}\quad(\Re s>1),\\
+ w_a(n)&=h\,1_{n\equiv a\bmod q}\Lambda(n)+1_{n=q^j,\;j\ge1}\log q,\\
+ c_b&=\FP_{s=1}D_b(s),\qquad d_b=D_b(2),\qquad
+ M_a(y)=\sum_{n\le y}w_a(n)(y-n).
+ \end{aligned}
+\]
+The principal character contributes the primitive factor \(\zeta\).
+The weighted sum over each parity vanishes because \(a\ne\pm1\).
+In the primitive functional equations this removes the gamma factors and leaves
+the weighted conductor sum \(-\log q\). Consequently
+\[
+                 D_a(s)+D_b(1-s)=-\log q.
+\]
+For \(y\ge1\) the two identities we use are
+\begin{align}
+ \sqrt y\bigl(F_a(\log y)+B_a\bigr)
+    &=\frac{M_a(y)}y-\frac y2+1+\log(q/y)+c_b-\frac{\log q+d_b}{y},\\
+ \frac{F_a(-\log y)+B_a}{\sqrt y}
+    &=1+\log y+c_b-\sum_{n\le y}\frac{w_b(n)}n
+                    -y\sum_{n>y}\frac{w_b(n)}{n^2}-\frac1{2y}.
+\end{align}
+The tail in (4) equals \(d_b-\sum_{n\le y}w_b(n)/n^2\).
+The forward formula specializes to the published
+\href{https://github.com/leecrossley/integrated-prime-errors-mod-11/blob/v2.0.0/PROOF.md}{modulus-11 computation, \S6}.
+
+For (3), shift the inverse Mellin integral of \(D_a(s)y^{s+1}/[s(s+1)]\) left.
+The pole at 1 contributes \(y^2/2\). At 0 use
+\(D_a(s)=1/s-\log q-c_b+O(s)\), giving \(y(\log y-1-\log q-c_b)\).
+At \(-1\) the residue is \(-D_a(-1)=\log q+d_b\). The nontrivial
+zero terms give \(y^{3/2}(F_a(\log y)+B_a)\).
+
+For (4) use the kernel \(1/[(s-1)(s-2)]\) on a line to the right of 2.
+Mellin inversion for \(D_b(s)y^s\) times this kernel gives
+\(\sum_{n\le y}w_b(n)((y/n)^2-y/n)\).
+The residues at \(2,1,0\) are \(d_b y^2,-y(1+\log y+c_b),1/2\).
+Reflection \(\rho\mapsto1-\rho\) interchanges the character and its conjugate,
+so the zero contribution is \(y^{1/2}(F_a(-\log y)+B_a)\).
+The weighted functional equation removes all other trivial poles in both shifts.
+For fixed \(q\), take horizontal heights separated from ordinates by
+\(\gg_q1/\log T\), using the local zero count. The usual logarithmic derivative
+bound \(O_q(\log^2 T)\) on each fixed-width horizontal segment and the quadratic
+denominators make those integrals tend to zero. On a far left vertical line the
+reflected series is bounded uniformly. Its integral tends to zero for \(y>1\).
+Continuity gives both identities at \(y=1\).
+
+\newpage
+\head{Uniform bounds and negative excursions}
+Uniformly for \(1\le b<q\), under the same critical-line assertion,
+\begin{equation}
+ c_b=\frac{h\Lambda(b)}{b}+O(\log^2q),\qquad
+ d_b=\frac{h\Lambda(b)}{b^2}+O\!\left(\frac{\log q}{q}\right).
+\end{equation}
+To see the first estimate put \(Y=q^2\). Fiorilli and Martin's
+\href{https://arxiv.org/pdf/0912.4908#page=31}{Proposition 3.10}
+approximates each \(-L'(1,\chi)/L(1,\chi)\) by the exponentially smoothed series
+with individual error \(O(\log q/q)\). The principal finite part is \(-\gamma_E\).
+Orthogonality then gives
+\[
+ c_b=-\gamma_E+h\sum_{n\equiv b(q)}\frac{\Lambda(n)e^{-n/Y}}n
+                -\sum_{q\nmid n}\frac{\Lambda(n)e^{-n/Y}}n+O(\log q).
+\]
+Their Proposition 3.11 gives \(\Lambda(b)/b+O(\log^2q/q)\) for the progression
+sum. The unrestricted smoothed sum is \(O(\log q)\) by the elementary
+bound \(\sum_{n\le x}\Lambda(n)/n\ll\log(2x)\) and partial summation.
+For \(d_b\), the remaining progression terms are at most
+\(h\sum_{j\ge1}\log((j+1)q)/(jq)^2\), and the ramified contribution is
+\(\log q/(q^2-1)\). This proves (5).
+
+At \(y=a\) each summand of \(M_a(y)\) is zero. Formula (3) and \(d_b\ge0\)
+imply, for an absolute \(K\) and \(a\ne\pm1\),
+\[
+ \sqrt a\,F_a(\log a)\le-\frac a2+\frac{h\Lambda(b)}b+K\log^2q .
+\]
+This is strictly negative if \(a>4K\log^2q\) and \(ab>4h\Lambda(b)\).
+The first condition has \(O(\log^2q)\) exceptions. Failure of the second
+forces \(b\) to be a prime power dividing \(kq+1=ab\) with
+\(1\le k\le4\log q\). Each such integer has at most
+\(\log(kq+1)/\log 2\) prime-power divisors greater than one, since their number is
+the sum of the exponents of its prime factors. As \(b\) determines \(a\), this
+gives another \(O(\log^2q)\) exceptions. The two omitted classes fit the bound.
+
+\head{A single prime gives a positive excursion}
+Set \(X=h\log q/8\). If \(\sqrt q\le p\le X\) is prime and \(p\equiv a\bmod q\),
+then \(M_a(2p)/(2p)\ge h\log p/2\). By (5),
+\(c_b-d_b/y\ge-O(\log^2q)\) for \(y\ge1\). Substitute \(y=2p\) in (3) to obtain
+\[
+ \sqrt{2p}\,F_a(\log(2p))
+  \ge h\log p/2-p-O\!\left(\sqrt p+\log^2q\right)
+  \ge h\log q/8-O\!\left(\sqrt{q\log q}+\log^2q\right).
+\]
+Here \(0\le B_a\le4/3\) and \(|\log(q/(2p))|\ll\log q\).
+Thus \(F_a(\log(2p))\gg\sqrt{q\log q}\) for every sufficiently large \(q\)
+in the indicated range, with an absolute implied constant.
+
+\newpage
+\head{Counting classes with both signs}
+At \(X=h\log q/8\), write \(N_a=\#\{p\le X:p\equiv a\bmod q\}\).
+Erd\H{o}s's \href{https://www.renyi.hu/~p_erdos/1949-05.pdf}{Theorem 2}
+gives at least \(\delta_0 h\) classes with \(N_a>0\) for some absolute \(\delta_0>0\).
+For the refinement, let \(H\) be the subgroup of fixed index \(d\), and \(C\) one
+of its cosets. Equation (9) of the same paper gives
+\(\sum_a N_a(N_a-1)\ll h\). Since \(\sum_aN_a\le\pi(X)\ll h\), the second moment
+\(\sum_aN_a^2\ll h\) as well.
+
+Character orthogonality on the quotient by \(H\) gives
+\[
+ \sum_{a\in C}N_a=\frac{\pi(X)}{d}+O\!\left(\sqrt X\log^2(qX)+1\right)
+                 \sim\frac{h}{8d}.
+\]
+Indeed there are \(d\) characters on the quotient. For each nonprincipal one
+the GRH estimate \(\sum_{n\le x}\Lambda(n)\chi(n)\ll\sqrt{x}\log^2(qx)\)
+and prime-power removal followed by partial summation give the displayed error.
+The principal term omits the prime \(q\). See Montgomery and Vaughan,
+\emph{Multiplicative Number Theory I}, Theorem 13.7. Cauchy--Schwarz now gives
+\(\#\{a\in C:N_a>0\}\ge(\sum_{a\in C}N_a)^2/\sum_aN_a^2\ge\delta_d h\)
+for an absolute-in-\(q,C\) constant \(\delta_d>0\) for each fixed \(d\).
+
+Choose fixed \(0<\varepsilon<\min(1/16,\delta_d/8)\) and set
+\(Y=\varepsilon h\log q\). The number of classes containing any prime
+power \(\le Y\) is at most \(\pi(Y)+O(\sqrt Y\log Y)\sim\varepsilon h\), by the
+ordinary prime number theorem. Discard these classes and \(a=\pm1\). At least
+\(\delta_d h/2\) classes in \(C\) remain for large \(q\), each with a prime
+\(Y<p\le X\). Such a prime exceeds \(\sqrt q\), so the preceding page supplies
+the positive excursion.
+
+For these same classes the only possible contribution to \(M_a(Y)/Y\) comes from
+the powers of \(q\), of total weight at most \(\log Y\). From (3), (5),
+\(\Lambda(b)/b\le1\) and \(d_b\ge0\), we obtain
+\[
+ \sqrt{Y}\,F_a(\log Y)\le -Y/2+O(q+\log^2q+\log Y)\le -Y/3
+\]
+for sufficiently large \(q\), since \(Y/q\to\infty\). This supplies a negative
+excursion of size \(\gg_d\sqrt{q\log q}\). Recurrence proves (1), with strict
+margins obtained by decreasing the constants. Take \(d=2\) for squares and
+nonsquares, or \(d=1\) for the entire group.
+
+For the unqualified group the class \(1\bmod q\) has a strictly negative lower
+limit and a strictly positive upper limit at every prime \(q\ge11\), by the
+\href{https://github.com/leecrossley/integrated-prime-errors-mod-11/blob/v2.0.0/range/PROOF.md}{previous class-one theorem}.
+Decreasing \(\delta,\eta\) over the finitely many intervening primes extends (1)
+from sufficiently large \(q\) to every \(q\ge11\). The resulting constants are
+existence bounds. There is no numerical claim about their size.
+
+\newpage
+\head{An explicit class at every prime}
+For \(q\equiv1\bmod3\) choose \(a=2\), and for \(q\equiv2\bmod3\) choose \(a=4\).
+In both cases \(\Lambda(a)=\log2\) and \(3\mid q+a\). For \(q\ge11\) the
+only possible progression terms up to \(3q\) are \(a,q+a,2q+a\).
+The middle term contributes weight \(\log3\) only if it is a power of 3.
+The last term is even and can contribute only weight \(\log2\).
+
+These last two terms cannot both contribute. For \(a=4\), the last is
+\(2(q+2)\) with \(q+2>1\) odd. For \(a=2\), simultaneous contributions would
+give \(q+1=2^m\), \(q+2=3^k\). Here \(m\ge3\), so \(3^k\equiv1\bmod8\)
+forces \(k\) even. The two positive even factors \(3^{k/2}-1,3^{k/2}+1\) of
+\(2^m\) are powers of 2 differing by 2. Only \(2,4\) do so, giving \(q=7\).
+Consequently
+\[
+ \frac{M_a(3q)}{3q}\le h\left(\log2+\frac23\log3\right)+\frac23\log q,
+ \qquad \frac{M_a(2a)}{2a}\ge\frac{h\log2}{2}.
+\]
+The common contribution at \(n=q\) accounts for the last log in the first bound.
+
+Here are explicit bounds for \(q\ge10\,000\). Put \(l=\log q,\ U=h\Lambda(b)/b\).
+The two Fiorilli--Martin bounds used in (5) give an error at most
+\[
+ 2l^2+3.935l+(14.27l+16.25)+(16.1l+17.83)/\sqrt q
+ <2l^2+19l+17
+\]
+in \(c_b=U-\gamma_E-\sum_{q\nmid n}\Lambda(n)e^{-n/q^2}/n+\text{error}\).
+The subtracted sum is at most \(2\log(1+q^2)<4l+1\). Indeed
+\(\log(m!)=\sum_{n\le m}\Lambda(n)\lfloor m/n\rfloor\) implies
+\(\sum_{n\le m}\Lambda(n)/n\le2\log m\) for \(m\ge1\).
+Average using a geometric random integer \(m\ge0\) with
+\(\Pr(m\ge n)=e^{-n/q^2}\). By concavity,
+\(2\,\mathbb E\log(1+m)\le2\log(1+q^2)\).
+Also \(0\le d_b-U/b\le(2\log(2q)+2)/q+l/(q^2-1)<1\). Since \(ab=1+kq\)
+with \(k\ge1\), \(b>q/a\) and \(U\le4l\).
+
+With \(D=3/2-\log2-\tfrac23\log3\), formula (3) now gives
+\[
+ \begin{aligned}
+ \sqrt{2a}\,F_a(\log(2a))&\ge h\log2/2-2l^2-24l-28,\\
+ \sqrt{3q}\,F_a(\log(3q))&\le-Dq+2l^2+24l+17 .
+ \end{aligned}
+\]
+For the first line use \(4\le2a\le8\), \(B_a\le4/3\), and
+\(c_b-d_b/(2a)\ge-2l^2-23l-20\).
+At \(q=10\,000\) these bounds give \(F_a(\log(2a))/q>0.1077\) and
+\(-F_a(\log(3q))/\sqrt q>0.0194\). Both bounds improve as \(q\) increases,
+since \((2l^2+24l+17)/q\) and \((2l^2+24l+28)/q\) decrease.
+Recurrence gives the claimed margins \(1/10\) and \(1/60\). The published
+unconditional range covers the smaller primes. A separate exact sieve checked
+the prime-power exclusion at all 148,929 primes from 11 to two million.
+
+\newpage
+\head{Further powers of two and the limit of a single prime}
+Let \(q\ge10\,000\), and take any \(a=2^j\), \(j\ge1\), satisfying
+\[
+                     3\mid q+a,\qquad a\le\frac{q}{50\log q}.
+\]
+Their representatives are smaller than \(q\), so these classes are distinct.
+The congruence selects every other exponent, giving
+\((1/2+o(1))\log_2 q\) such classes as \(q\to\infty\).
+Here \(\log_2 q=\log q/\log2\). Each satisfies
+\[
+     \limsup E_{q,a}>\frac{q}{4\sqrt{2a}},
+     \qquad \liminf E_{q,a}<-\frac{\sqrt q}{120}.
+\]
+For \(j\ge2\), the integer \(2q+a=2(q+2^{j-1})\) has an odd factor greater than one.
+For \(j=1\) the preceding page treats the possible power of 2. Thus exactly the
+same upper bound for \(M_a(3q)/(3q)\) applies, and
+\(M_a(2a)/(2a)\ge h\log2/2\) still holds.
+Since \(b>q/a\), the bound \(U\le al\le q/50\) suffices.
+For \(y=2a\) we have \(B_a\sqrt{2a}\le4a/3\) and \(\log(q/(2a))>0\).
+Substitution into (3) gives
+\[
+\begin{aligned}
+ \frac{\sqrt{2a}\,F_a(\log(2a))}{q}
+  &\ge\left(1-\frac1q\right)\frac{\log2}{2}
+        -\frac{2l^2+24l+20}{q}-\frac7{150l},\\
+ \frac{-F_a(\log(3q))}{\sqrt q}
+  &\ge \frac1{\sqrt3}\left(D-\frac1{50}
+                     -\frac{2l^2+20l+17}{q}\right).
+\end{aligned}
+\]
+The right sides increase for \(q\ge10\,000\) and exceed \(0.3004\) and
+\(0.01002\) at the endpoint. The two bounds follow by recurrence.
+
+For arbitrary \(a\), a single prime \(p\equiv a\bmod q\) can dominate the Riesz
+main term \(y^2/2\) through \(h\log p\,(y-p)\) only if
+\[
+  p<\tfrac12 h\log p,\qquad
+  \max_{y\ge p}\frac{y-p}{y^2}=\frac1{4p}.
+\]
+The equality follows from \((y-2p)^2\ge0\), with equality at \(y=2p\). By
+monotonicity of \(p/\log p\) for \(p>e\), this restricts
+\(p\le(1/2+o(1))q\log q\). The prime number theorem bounds the number of classes
+such primes can represent by \((1/2+o(1))(q-1)\).
+The full sum in (3) and the inverse-class sum in (4) retain the contributions
+discarded by this test. A proof for all classes still requires both profile
+signs uniformly in the remaining progressions, or another mechanism.
+
+\newpage
+\head{Checks at the first prime beyond the published range}
+The next prime after the previous range is \(10\,009\). At this modulus the two
+arithmetic identities apply to 10,006 of the 10,008 reduced classes. A scan of
+65 integer scales \(1\le y\le2\,000\,000\), using both signs of \(\log y\),
+gave the following strict inequalities for the profile.
+\begin{center}
+\begin{tabular}{lrrr}
+\hline
+Evaluation & Negative & Positive & Both signs\\
+\hline
+Arithmetic identities (3) and (4) & 10,006 & 9,779 & 9,779\\
+One-ordinate certificate, all classes & 10,008 & 10,008 & 10,008\\
+\hline
+\end{tabular}
+\end{center}
+The first row used 128-bit and 160-bit outward-rounded intervals. The first
+recorded witness for each sign agreed at both precisions. In the 227 classes
+where this grid gave only a negative value, 98 were squares and 129 were nonsquares.
+As a separate test of (3)--(4), the Hurwitz-transform constants at 1 and 2 agreed
+with 20 direct logarithmic-derivative calculations at modulus 11. All 160 profile
+evaluations for the eight applicable classes agreed with a sum over 850 certified
+positive ordinates to within the published absolute tail bound \(0.154\).
+
+For the second row the positive ordinate of Conrey character 9959 lies in
+\((402441651\pm2)/2^{44}\). The two published per-prime programs verified
+opposite endpoint signs, exclusion of all other inducing characters at the
+ordinate, and absence of a family zero at twice its height. The dimension-three
+kernel has amplitude \(>1.8856\). With
+\href{https://arxiv.org/pdf/1305.3087#page=14}{Platt's Theorems 7.1 and 7.2}
+and the dichotomy in the previous paper, the bounds
+\(\liminf E_{q,a}<-3/2\), \(\limsup E_{q,a}>1/4\) hold unconditionally for all
+10,008 classes at this prime. This one-modulus verification is separate from
+the argument for unbounded primes.
+
+The endpoint inequalities for the explicit class and the powers of two were
+checked at 160 bits. Direct arithmetic evaluations gave the stated margins for
+\(a=2,8\) at \(q=10\,009\) and \(a=4,16\) at \(q=10\,037\).
+Lean 4.33.1 separately checks the two elementary prime-power exclusions and the
+exact threshold for one prime to exceed the Riesz main term.
+
+\textbf{Prior work.} Johnston posed the classification in
+\href{https://arxiv.org/pdf/2407.03530#page=9}{Problem 23}.
+Zhao treats the same integral in \href{https://arxiv.org/html/2411.18903v2#S8}{equation (35)}.
+Erd\H{o}s's positive-proportion theorem concerns least primes.
+\href{https://arxiv.org/abs/1710.00088}{Martin and Ng} study ordinary prime races
+under zero-independence conditions.
+\href{https://arxiv.org/abs/2010.05944}{De la Bretèche and Fiorilli} obtain
+results on moments over residue classes for weighted prime sums. A search
+covering those works and other smoothed prime races located no prior proof of
+(1) or the rule selecting class 2 or 4 under Dirichlet GRH alone.
+Priority remains unconfirmed.
+\end{document}

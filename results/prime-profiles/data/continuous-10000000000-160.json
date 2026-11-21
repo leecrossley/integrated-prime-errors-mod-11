@@ -1,0 +1,125 @@
+{
+  "prime": 10009,
+  "limit": 10000000000,
+  "bits": 160,
+  "input_sha256": "570043a0171c0fc3c4744441bf568fbc21512d3dbb9be8cde79082f90764dc45",
+  "intervals_checked": 811868,
+  "classes_tested": 23,
+  "positive": {
+    "747": {
+      "numerator": 9420111223,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.007578847743463909 +/- 3.91e-20]"
+    },
+    "932": {
+      "numerator": 352668047,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.1878414365254502 +/- 3.33e-17]"
+    },
+    "1189": {
+      "numerator": 346175483,
+      "denominator": 1,
+      "direction": "reflected",
+      "profile": "[0.1792506295719434 +/- 2.23e-17]"
+    },
+    "3182": {
+      "numerator": 759004693,
+      "denominator": 1,
+      "direction": "reflected",
+      "profile": "[0.02583231264998954 +/- 1.58e-18]"
+    },
+    "3941": {
+      "numerator": 5599176133,
+      "denominator": 1,
+      "direction": "reflected",
+      "profile": "[0.001219874040848293 +/- 3.79e-19]"
+    },
+    "4209": {
+      "numerator": 4819958267,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.003959810495805078 +/- 2.33e-19]"
+    },
+    "4607": {
+      "numerator": 228289879,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.03536441415937317 +/- 1.58e-18]"
+    },
+    "4941": {
+      "numerator": 266744791,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.1222362731689201 +/- 6.52e-18]"
+    },
+    "5612": {
+      "numerator": 1611344513,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.01121216963043090 +/- 7.77e-19]"
+    },
+    "5619": {
+      "numerator": 2741390647,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.01354692283843979 +/- 3.83e-18]"
+    },
+    "5961": {
+      "numerator": 423827057,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.02505005673064888 +/- 3.72e-18]"
+    },
+    "6518": {
+      "numerator": 2171849419,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.02641347493172383 +/- 4.64e-18]"
+    },
+    "6945": {
+      "numerator": 4568234653,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.006264464537762612 +/- 2.60e-19]"
+    },
+    "7097": {
+      "numerator": 1553876603,
+      "denominator": 1,
+      "direction": "reflected",
+      "profile": "[0.02384870750080745 +/- 3.12e-18]"
+    },
+    "7123": {
+      "numerator": 706762631,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.006996317249067293 +/- 2.61e-19]"
+    },
+    "7910": {
+      "numerator": 264575807,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.08439701111612492 +/- 3.89e-18]"
+    },
+    "8076": {
+      "numerator": 678307997,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.04787853747535175 +/- 2.93e-18]"
+    },
+    "9977": {
+      "numerator": 475877873,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.08979798761766483 +/- 4.71e-18]"
+    }
+  },
+  "negative_throughout": [
+    148,
+    2205,
+    7228,
+    9100,
+    9380
+  ]
+}

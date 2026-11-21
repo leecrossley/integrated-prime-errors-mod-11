@@ -1,0 +1,232 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,xcolor,hyperref}
+\definecolor{ink}{RGB}{20,63,69}
+\hypersetup{colorlinks=true,urlcolor=ink,pdfauthor={Lee Crossley},pdftitle={Combined prime contributions in Johnston's sign problem}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt minus 1pt}
+\setlength{\emergencystretch}{2em}
+\newcommand{\head}[1]{\section*{\color{ink}#1}}
+\newcommand{\li}{\operatorname{li}}
+\raggedbottom
+\begin{document}
+\begin{center}
+{\Large\bfseries Combined prime contributions in Johnston's sign problem\par}
+\vspace{6pt}
+{Lee Crossley \quad$\cdot$\quad 21 November 2026}
+\end{center}
+Fix a prime \(q\ge11\), put \(h=q-1\), and let \(a\) be a reduced class.
+The normalized integrated prime-counting error is
+\[
+ E_{q,a}(x)=\frac{\log x}{x^{3/2}}
+ \int_2^x\!\bigl(h\pi(t;q,a)-\li(t)\bigr)\,dt .
+\]
+We examine whether several primes can force \(E_{q,a}\) to take both signs
+arbitrarily far out in every class. This note supplies an exact test, an
+example where twelve terms are necessary, and a quantitative obstruction to
+uniformly bounding the number of terms. The all-prime, all-class problem
+remains open in this work. \href{https://arxiv.org/pdf/2407.03530#page=9}{Johnston's Problem 23.}
+
+\head{The exact test for a collection of primes}
+For a finite set of prime powers at positions \(n_i\) with positive weights \(w_i\),
+write \(W=\sum_iw_i\) and \(S=\sum_iw_i n_i\). The line \(Wy-S\) is a global
+minorant of \(\sum_iw_i(y-n_i)_+\), where \(t_+=\max(t,0)\). Completing the square gives
+\[
+ Wy-S-y^2/2=W^2/2-S-(y-W)^2/2 .
+\]
+Thus a collection with \(W^2>2S\) supplies a positive surplus at \(y=W\).
+Conversely, if the full clipped sum exceeds \(y^2/2\) at any \(y\), its
+active prefix of terms \(n_i\le y\) satisfies \(W^2>2S\). This is an
+equivalence over prefixes, allowing any number of terms. The main-term test
+alone omits the lower-order corrections in the actual prime-counting error.
+
+Under Dirichlet GRH write \(E_{q,a}(x)=F_a(\log x)+o_q(1)\). The absolutely
+convergent zero expansion makes \(F_a\) uniformly almost periodic. Every
+strict profile value recurs, so two signed witnesses suffice. Use \(a\ne\pm1\),
+\(b=a^{-1}\bmod q\), and \(B=\frac23\#\{r:r^2\equiv a\bmod q\}\). Set
+\[
+ \begin{aligned}
+ w_a(n)&=h\,1_{n\equiv a(q)}\Lambda(n)+1_{n=q^j,\ j\ge1}\log q,\\
+ D_b(s)&=\sum_nw_b(n)n^{-s},\qquad c_b=\mathrm{FP}_{s=1}D_b(s),\quad d_b=D_b(2).
+ \end{aligned}
+\]
+The last series defines \(D_b\) first in \(\Re s>1\). Its continuation comes
+from the character-weighted logarithmic derivatives of the primitive factors.
+The forward Riesz identity from the preceding research note is
+\[
+ G(y):=y^{3/2}F_a(\log y)=\sum_n w_a(n)(y-n)_+-T(y),
+\]
+\[
+ T(y)=y^2/2+B y^{3/2}+y\log y-y(1+\log q+c_b)+\log q+d_b,\qquad y\ge1 .
+\]
+Here \(T''(y)=1+3B/(4\sqrt y)+1/y>0\). On any finite search interval,
+positive values exist exactly when some prefix satisfies
+\(\max_y\{Wy-T(y)\}>S\), where the maximum is restricted to that interval.
+The minorant argument works even when the maximizing \(y\) lies outside the
+prefix's interval of activity. \href{https://github.com/leecrossley/integrated-prime-errors-mod-11/blob/v2.0.0/range/PROOF.md}{Fixed-modulus profile and recurrence.}
+
+\newpage
+\head{Twelve primes are necessary in one class}
+At \(q=10\,009,\ a=1\,258\) (a nonsquare), the first twelve primes in the class are
+\[
+\begin{gathered}
+251483,\ 271501,\ 311537,\ 451663,\ 551753,\ 791969,\\
+872041,\ 972131,\ 1052203,\ 1212347,\ 1292419,\ 1412527 .
+\end{gathered}
+\]
+At \(y=1\,611\,211\), these are all the progression terms and
+\(F_a(\log y)>1.00540335\). For this forward identity twelve is the exact
+minimum number of selected progression terms for a positive test at any
+real \(y\ge1\), even when every common \(q\)-power correction is retained.
+
+Indeed \(b=1\,456\) and interval calculation gives
+\(1+\log q+c_b<-2.1995\). The common terms add at most \(y\log y\) at every
+\(y\ge1\). Since \(B\ge0\) and \(d_b>0\), a positive corrected test requires
+the chosen progression terms alone to exceed \(y^2/2\). For at most twelve
+terms this requires \(y<2h\cdot12\log y\), hence \(y<6\,000\,000\), using
+monotonicity beyond this endpoint. Direct sieving finds 40 ordinary primes
+and no higher powers in the class up to that cutoff.
+
+For fixed \(y\), the function \(t\mapsto (y-t)\log t\), \(2\le t\le y\), is
+strictly concave. Its derivative is \(y/t-1-\log t\). The largest \(k\)
+active weights in the ordered list of primes therefore occur in a consecutive
+block, with ties resolved at its two ends. All 385 consecutive blocks of
+length one through eleven have \(W^2/2<S\). Completing the square excludes
+them at every scale. A 160-bit interval calculation verifies the positive
+corrected value for the displayed list. The integer sieve for this example
+is independent of the progression sieve in the continuous search.
+
+\head{A finite search over every real scale}
+For the reflected profile put \(H(y)=F_a(-\log y)/\sqrt y\). If the active
+inverse-class prefix has \(P=\sum_{n\le y}w_b(n)/n\) and
+\(Q=\sum_{n\le y}w_b(n)/n^2\), the reflected Riesz identity gives
+\[
+ H(y)=1+\log y+c_b-P+y(Q-d_b)-1/(2y)-B/\sqrt y .
+\]
+Both \(G\) and \(H\) are strictly concave between successive prime-power
+positions in their respective progressions, including the common \(q\)-powers.
+In particular \(H''(y)=-y^{-2}-y^{-3}-3B/(4y^{5/2})\) on each piece.
+At any interior rational \(z\), or at an endpoint using the piece's one-sided
+derivative, the tangent line majorizes that whole piece. If the tangent is
+strictly negative at both endpoints then the profile is negative everywhere
+on that piece. Conversely, a strictly positive interval value at \(z\)
+certifies a positive witness. Floating point proposes \(z\). Each conclusion
+uses outward-rounded ball arithmetic on the exact dyadic rational proposed.
+
+\newpage
+\head{What happens as the search interval grows}
+At \(q=10\,009\) an earlier geometric grid found positive profiles for
+9,779 of the 10,006 classes with \(a\ne\pm1\), and negative profiles for
+all 10,006. The continuous search starts with the other 227 and retains
+every progression term. Each row exhausts both directions on \(1\le y\le Y\)
+for every class left in its last column.
+\begin{center}
+\begin{tabular}{r r r r}
+\hline
+\(Y\)&Classes entering&New positive witnesses&Negative throughout\\
+\hline
+\(2\cdot10^6\)&227&6&221\\
+\(2\cdot10^8\)&221&198&23\\
+\(10^{10}\)&23&18&5\\
+\(10^{11}\)&5&3&2\\
+\(10^{12}\)&2&0&2\\
+\hline
+\end{tabular}
+\end{center}
+At \(a=148\) and \(a=9\,100\) this proves \(F_a(u)<0\) for the full real
+interval \(|u|\le\log(10^{12})\). This assertion concerns the limiting
+profile. Both classes are quadratic nonresidues. All 5,002 quadratic residues
+other than \(\pm1\) already have a positive arithmetic witness by \(y=10^{11}\).
+The separately verified low-zero certificate at this modulus also gives
+\(\limsup E_{q,a}>1/4\) for both classes. Hence their positive profile values occur
+outside the tested interval. A finite profile search cannot substitute for
+a theorem about arbitrarily large prime moduli.
+
+At 128 and 160 bits the programs visited the same 18,578,682 pieces across all
+five stages, with the same dyadic positive witnesses and the same surviving
+classes. Some scale intervals recur across stages. The previous low-zero
+certificate used two independent interval methods. The continuous search
+uses the same algorithm at both precisions. \href{https://arxiv.org/pdf/1305.3087#page=14}{Platt's finite nonvanishing input.}
+
+\head{How many terms can a class require?}
+At a position \(n\) with weight \(h\Lambda(n)\), one has
+\[
+ \sup_{y>0}\frac{h\Lambda(n)(y-n)_+}{y^2}
+ =\frac{h\Lambda(n)}{4n}.
+\]
+If a progression has no prime power up to \(Y>e\), any \(k\) progression
+terms contribute at most \(kh\log Y/(4Y)\) after division by \(y^2\).
+Even the best choice of terms and scale therefore needs
+\(k>2Y/(h\log Y)\) to exceed the main term \(y^2/2\).
+For ordinary primes alone the theorem of Li, Pratt and Shakan already
+implies that no fixed \(k\) works this way for every class at every large
+prime. The next page handles prime powers and the inverse class simultaneously.
+\href{https://arxiv.org/pdf/1607.02543#page=2}{Li, Pratt and Shakan, Theorem 1.1.}
+
+\newpage
+\head{Long gaps for a residue and its inverse}
+Let \(\log_j\) denote the \(j\)-fold iterated logarithm, and put
+\(L(q)=(\log_2q)(\log_4q)/\log_3q\). For every fixed \(0<\varepsilon<1\),
+all sufficiently large primes \(q\) admit at least \(q^{1-\varepsilon}\)
+residues \(a\ne\pm1\) such that neither \(a\) nor \(a^{-1}\) contains a
+prime power up to
+\[
+ Y=c_\varepsilon q\log q\,L(q)
+\]
+for a positive constant \(c_\varepsilon\). This arithmetic assertion is
+unconditional. Thus in both progressions a main-term-dominating selection
+requires \(\gg_\varepsilon L(q)\) terms even with access to arbitrarily
+large primes and prime powers.
+
+Take \(\tau=\min(\varepsilon/8,1/16)\), \(u=\tau\log q\) and let
+\(m=\prod_{p\le u}p=q^{\tau+o(1)}\). The covering estimate of Ford, Green,
+Konyagin, Maynard and Tao supplies an integer \(v\) and a length
+\(J\asymp_\varepsilon\log q\,L(q)\) such that every \(v+j,\ 0\le j<J\),
+has a prime factor dividing \(m\). We truncate a longer cover if necessary.
+The set \(S=\{a:1\le a<q,\ a\equiv qv\bmod m\}\) has size \(q/m+O(1)\).
+For \(a\in S\), each \(a+jq,\ 0\le j<J\), has a prime factor \(\le u\).
+Any prime power among them must therefore be a power of a prime \(\le u\),
+including exponent one. Across all \(a\in S\) there are at most
+\(O(\pi(u)\log(q(J+1)))=O(\log^2q)\) bad residues. Every member of an
+eligible progression up to \(qJ\) is among the tested \(J\) positions.
+\href{https://arxiv.org/pdf/1412.5029#page=3}{Ford et al., equation (1.2).}
+
+Write \(a=r+ms,\ b=r+mt\) for the same least representative \(r\bmod m\).
+After division by \(m^2\bmod q\), \(ab\equiv1\bmod q\) becomes
+\((s+r/m)(t+r/m)\equiv m^{-2}\bmod q\). The two variables range over
+translated intervals of the same length \(|S|\) modulo \(q\).
+The modular-hyperbola count is uniformly
+\[
+ \#\{a\in S:a^{-1}\in S\}=\frac{|S|^2}{q}
+              +O(\sqrt q\log^2q)=q^{1-2\tau+o(1)} .
+\]
+In fact each quadratic type contains at least \(q^{1-\varepsilon}\) such residues.
+Let \(\chi\) be the Legendre symbol and \(e_q(t)=\exp(2\pi i t/q)\).
+The normalized Fourier coefficients of \(1_S\) have total absolute value
+\(O(\log q)\) by the geometric-series bound for an interval and dilation by \(m\).
+Expanding both indicators in \(\sum_a\chi(a)1_S(a)1_S(a^{-1})\)
+gives a discrepancy \(O(\sqrt q\log^2q)\). Indeed the complete sums
+\(\sum_{a\ne0}\chi(a)e_q(ua+v/a)\) have modulus at most \(2\sqrt q\).
+For \(v\ne0\) the Sali\'e formula gives
+\(\tau(\chi)\chi(v)\sum_{z^2=4uv} e_q(z)\), and for \(v=0\) the
+Gauss bound suffices. Half the unweighted count therefore survives for
+each type up to that discrepancy. Removing the bad classes, their inverses
+and \(\pm1\) costs \(O(\log^2q)\). Since \(2\tau<\varepsilon\), the
+claim follows after reducing \(c_\varepsilon\).
+For example, with \(q=1\,000\,003,\ m=210,\ v=2,\ J=9\), an independent
+sieve finds four squares and six nonsquares, including the pair \(1646,318956\).
+\href{https://doi.org/10.4064/aa142-1-5}{Chan and Shparlinski, equation (1).}
+\href{https://www.math.ucdavis.edu/~junxian/paper/DivisorTichmarsh5.pdf\#page=18}{Li, Lemma 6.3.}
+
+Under Dirichlet GRH the preceding note gives
+\(c_b=h\Lambda(b)/b+O(\log^2q)\). Here \(\Lambda(b)=0\). Up to \(Y\) the
+only terms in the forward identity are the common \(q\)-powers. Hence
+\(\sqrt y\,F_a(\log y)\le-y/2+1+\log q+c_b\le-y/3\)
+for \(C\log^2q\le y\le Y\) with an absolute \(C\), and likewise for the
+inverse. This blocks every early forward prime-sum test on that whole
+interval. Later contributions, and the two-sided spectral method, remain
+available. The covering bound and inverse-count estimate are established
+results. The paired prime-power application and the numerical examples are
+recorded here without a claim of historical priority.
+\href{https://arxiv.org/pdf/0912.4908#page=31}{Fiorilli and Martin, Propositions 3.10--3.11.}
+\end{document}
