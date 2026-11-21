@@ -208,7 +208,7 @@ The normalised prime integral at a finite input can have a different sign from i
 
 ## 7. Relation to earlier work
 
-Daniel R. Johnston posed the all-moduli eventual-negativity classification at the 2024 Comparative Prime Number Theory Symposium. His earlier theorem concerns the ordinary prime-counting function. For the progression problem the stated hypothesis is GRH. [Problem 23, p. 9](https://arxiv.org/pdf/2407.03530#page=9) · [Johnston's original paper](https://doi.org/10.4153/S0008439522000212)
+Daniel R. Johnston posed the all-moduli eventual-negativity classification at the 2024 Comparative Prime Number Theory Symposium. His earlier theorem concerns the ordinary prime-counting function. For the progression problem the stated hypothesis is GRH. [Problem 23 (D. R. Johnston) in Hamieh, Kadiri, Martin and Ng, p. 9](https://arxiv.org/pdf/2407.03530#page=9) · [Johnston's original paper](https://doi.org/10.4153/S0008439522000212)
 
 Tianyu Zhao's 2025 paper gives a table for equation (35) in the concluding section. Its integral equals $A_{q,a}/\varphi(q)$. The row for 11 lists $1,3,4,5,9$ and the row for 22 lists $1,3,5,9,15$ as eventually negative. Zhao's table is stated under GRH. The positive excursions above hold unconditionally, so in particular under GRH, and they contradict those two rows. This comparison addresses equation (35) and those specific entries. [Published paper, §8](https://doi.org/10.1007/s40993-025-00640-y) · [Equation (35) and Table 1](https://arxiv.org/html/2411.18903v2#S8)
 
