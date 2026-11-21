@@ -22,7 +22,9 @@ Thus the conclusion concerns arbitrarily large inputs $`x`$ at each modulus. Und
 
 [Download the paper](range/paper.pdf) · [Read the full proof](range/PROOF.md) · [Certificate data](range/ordinates.tsv) · [Verification records](range/evidence)
 
-Combining the proof with the Dirichlet GRH theorem announced by Levent Alpöge on 20 November 2026 gives **both signs in class 1 for every prime modulus from 11 onward**. The normalized upper limit in that class exceeds $`q/2-8\log q-16/3`$ for $`q\ge1000`$. The same combination proves positive excursions for $`-1`$ and the inverse of 2 at every prime from 11 onward, and for inverses of every prime power $`2\le b\le q/(40\log q)`$ when $`q\ge1000`$. The corollaries in this paragraph use `LFunction_ne_zero_of_half_lt_re`. [Exact Lean statements](https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Statements.lean#L6-L16) [Sutherland’s independent verification](https://math.mit.edu/~drew/grh/)
+Under Dirichlet GRH the argument gives **both signs in class 1 for every prime modulus from 11 onward**. The normalised upper limit in that class exceeds $`q/2-8\log q-16/3`$ for $`q\ge1000`$. Under the same hypothesis the integral has positive excursions for $`-1`$ and the inverse of 2 at every prime from 11 onward, and for inverses of every prime power $`2\le b\le q/(40\log q)`$ when $`q\ge1000`$. The corollaries in this paragraph use `LFunction_ne_zero_of_half_lt_re`. [Exact Lean statements](https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Statements.lean#L6-L16)
+
+Levent Alpöge announced a Lean proof of Dirichlet GRH on 20 November 2026. At 22:05 UTC that day, Andrew Sutherland reported that two independent kernels had accepted the exported proof. The Lean kernel replay of the export and the end-to-end Comparator run were still in progress. [Alpöge’s announcement](https://alpo.ge/remark.pdf) [Sutherland’s verification record](https://math.mit.edu/~drew/grh/)
 
 ## Where the result extends
 
