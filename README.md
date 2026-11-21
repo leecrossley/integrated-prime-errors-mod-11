@@ -2,33 +2,37 @@
 
 The integrated prime-counting error changes sign infinitely often in **every reduced class modulo every prime from 11 through 10,007**. The proof is unconditional. It covers 1,226 prime moduli and 5,745,160 classes. The same result holds at twice each of those primes. The separate modulus-11 proof and its original certificate are preserved here.
 
-Let $\pi(t;q,a)$ count primes up to $t$ in the class $a\bmod q$. For
-$$
+Let $`\pi(t;q,a)`$ count primes up to $`t`$ in the class $`a\bmod q`$. For
+
+```math
  E_{q,a}(x)=\frac{\log x}{x^{3/2}}\int_2^x
- \bigl(\varphi(q)\pi(t;q,a)-\operatorname{li}(t)\bigr)\,dt,
-$$
+ \bigl(\varphi(q)\pi(t;q,a)-\mathrm{li}(t)\bigr)\thinspace{}dt,
+```
+
 every class in the stated range satisfies
-$$
+
+```math
  \liminf_{x\to\infty} E_{q,a}(x)<-\tfrac32,\qquad
  \limsup_{x\to\infty} E_{q,a}(x)>\tfrac14 .
-$$
-Thus the conclusion concerns arbitrarily large inputs $x$ at each modulus. Under the generalized Riemann hypothesis (GRH) for the inducing functions at that modulus, each of the two strict excursion sets has positive lower logarithmic density.
+```
+
+Thus the conclusion concerns arbitrarily large inputs $`x`$ at each modulus. Under the generalized Riemann hypothesis (GRH) for the inducing functions at that modulus, each of the two strict excursion sets has positive lower logarithmic density.
 
 [Download the paper](range/paper.pdf) · [Read the full proof](range/PROOF.md) · [Certificate data](range/ordinates.tsv) · [Verification records](range/evidence)
 
-Combining the proof with Levent Alpöge’s Dirichlet-GRH theorem gives **both signs in class 1 for every prime modulus from 11 onward**. The normalized upper limit in that class exceeds $q/2-8\log q-16/3$ for $q\ge1000$. The same combination proves positive excursions for $-1$ and the inverse of 2 at every prime from 11 onward, and for inverses of every prime power $2\le b\le q/(40\log q)$ when $q\ge1000$. The right-half-plane theorem the proof uses is `LFunction_ne_zero_of_half_lt_re`. [Exact Lean statements](https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Statements.lean#L6-L15) · [Sutherland’s independent verification](https://math.mit.edu/~drew/grh/)
+Combining the proof with Levent Alpöge’s Dirichlet-GRH theorem gives **both signs in class 1 for every prime modulus from 11 onward**. The normalized upper limit in that class exceeds $`q/2-8\log q-16/3`$ for $`q\ge1000`$. The same combination proves positive excursions for $`-1`$ and the inverse of 2 at every prime from 11 onward, and for inverses of every prime power $`2\le b\le q/(40\log q)`$ when $`q\ge1000`$. The right-half-plane theorem the proof uses is `LFunction_ne_zero_of_half_lt_re`. [Exact Lean statements](https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Statements.lean#L6-L15) · [Sutherland’s independent verification](https://math.mit.edu/~drew/grh/)
 
 ## Where the result extends
 
 | Prime moduli | Classes | Conclusion and hypotheses |
 | --- | --- | --- |
-| $11\le q\le10\,007$ | Every reduced class | Both quantitative bounds above, unconditionally |
-| $11\le q\le400\,000$ | Class 1 and every quadratic nonresidue | Both signs arbitrarily far out, unconditionally |
-| $11\le q\le400\,000$ | Every quadratic residue | The normalized lower limit is below $-4/3$, unconditionally |
-| Every prime $q\ge11$ | Class 1 | Both signs if the inducing functions have no real zero in $(1/2,1)$. GRH suffices. |
-| $11\le q\le2\,000\,000$ | Every quadratic nonresidue | Both signs using the Dirichlet theorem and Platt’s central nonvanishing. Every square has a normalized lower limit below $-4/3$. |
-| Every prime $q\ge673$ | Every reduced class | Both quantitative bounds given the finite zero conditions up to height 16 in Theorem 3 |
-| Every prime $q\ge8104$ | Every reduced class | Under GRH there is a zero below height $9/20$ in absolute value. Central nonvanishing, one unshared positive zero that low and exclusion of its double give both signs. |
+| $`11\le q\le10\thinspace{}007`$ | Every reduced class | Both quantitative bounds above, unconditionally |
+| $`11\le q\le400\thinspace{}000`$ | Class 1 and every quadratic nonresidue | Both signs arbitrarily far out, unconditionally |
+| $`11\le q\le400\thinspace{}000`$ | Every quadratic residue | The normalized lower limit is below $`-4/3`$, unconditionally |
+| Every prime $`q\ge11`$ | Class 1 | Both signs if the inducing functions have no real zero in $`(1/2,1)`$. GRH suffices. |
+| $`11\le q\le2\thinspace{}000\thinspace{}000`$ | Every quadratic nonresidue | Both signs using the Dirichlet theorem and Platt’s central nonvanishing. Every square has a normalized lower limit below $`-4/3`$. |
+| Every prime $`q\ge673`$ | Every reduced class | Both quantitative bounds given the finite zero conditions up to height 16 in Theorem 3 |
+| Every prime $`q\ge8104`$ | Every reduced class | Under GRH there is a zero below height $`9/20`$ in absolute value. Central nonvanishing, one unshared positive zero that low and exclusion of its double give both signs. |
 
 At every prime from 17 through 10,007 a single well-placed zero certifies all reduced classes at once. For example, at 10,007 the proof locates a zero near height 0.000463485, isolates its character, and excludes its double across the family. The resulting oscillatory contribution exceeds 1.8856 in either direction about the class mean. At 13 the test uses four zeros and at 11 a separate explicit-formula calculation. The prime range uses Platt's published real-axis and central nonvanishing results. [Proof of the finite test](range/PROOF.md#2-a-finite-set-of-ordinates-controls-every-class) · [Platt, Theorems 7.1–7.2](https://arxiv.org/pdf/1305.3087#page=14)
 
