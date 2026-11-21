@@ -26,7 +26,7 @@ Thus the conclusion concerns arbitrarily large inputs $`x`$ at each modulus. Und
 
 Under Dirichlet GRH the argument gives **both signs in class 1 for every prime modulus from 11 onward**. The normalised upper limit in that class exceeds $`q/2-8\log q-16/3`$ for $`q\ge1000`$. Under the same hypothesis the integral has positive excursions for $`-1`$ and the inverse of 2 at every prime from 11 onward, and for inverses of every prime power $`2\le b\le q/(40\log q)`$ when $`q\ge1000`$. The corollaries in this paragraph use `LFunction_ne_zero_of_half_lt_re`. [Exact Lean statements](https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Statements.lean#L6-L16)
 
-Levent Alpöge announced a Lean proof of Dirichlet GRH on 20 November 2026. At 22:05 UTC that day, Andrew Sutherland reported that two independent kernels had accepted the exported proof. The Lean kernel replay of the export and the end-to-end Comparator run were still in progress. [Alpöge’s announcement](https://alpo.ge/remark.pdf) [Sutherland’s verification record](https://math.mit.edu/~drew/grh/)
+Levent Alpöge announced a Lean proof of Dirichlet GRH on 20 November 2026. It has not been refereed. At 22:05 UTC that day, Andrew Sutherland reported that two independent kernels had accepted the exported proof. The Lean kernel replay of the export and the end-to-end Comparator run were still in progress. [Alpöge’s announcement](https://alpo.ge/remark.pdf) [Sutherland’s verification record](https://math.mit.edu/~drew/grh/)
 
 ## Where the result extends
 
@@ -46,7 +46,7 @@ Daniel R. Johnston posed the classification question under GRH in 2024. Under GR
 
 ## Reproduce the results
 
-Use Python 3.10 or newer. The two range programs check the same integer certificate by different formulas using FLINT's outward-rounded ball arithmetic. Both use FLINT for the endpoint sign tests. The second uses an elementary alternating expansion over whole intervals for the family nonvanishing tests. The programs also accept an inclusive subrange such as `--start 10007 --stop 10007`.
+Use Python 3.10 or newer. The two range programs check the same integer certificate by different formulas using FLINT's outward-rounded ball arithmetic. Both use FLINT for the endpoint sign tests. The second uses an elementary alternating expansion over whole intervals for the family nonvanishing tests. It shares the first program's certificate reader and primitive-root routine. The programs also accept an inclusive subrange such as `--start 10007 --stop 10007`.
 
 ```sh
 python3 -m venv .venv
@@ -61,6 +61,6 @@ python real_axis.py --bits 128
 shasum -a 256 -c SHA256SUMS
 ```
 
-For the two Lean lemmas, use the pinned Mathlib checkout at commit `0df444a360eaa60ab8c11dca51a86af692955474` with its Lean 4.33.1 toolchain and compiled Mathlib cache. From that checkout run `lake env python3 /path/to/repository/range/check_lean.py /path/to/upstream/lean/src`. The checker verifies the compiler and Mathlib commits, hashes the upstream definition file, compiles both modules and replays them through the kernel. It checks the axiom sets of both named lemmas. The first lemma assumes right-half-plane nonvanishing. The second proves a moment inequality. The unconditional finite-modulus theorem has a written proof. Sutherland records the independent checks of the announced upstream formal theorem. [Lean source](range/Oscillation.lean) [Replay record](range/evidence/lean-4.33.1.txt)
+For the two Lean lemmas, use the pinned Mathlib checkout at commit `0df444a360eaa60ab8c11dca51a86af692955474` with its Lean 4.33.1 toolchain and compiled Mathlib cache. From that checkout run `lake env python3 /path/to/repository/range/check_lean.py /path/to/upstream/lean/src`. The checker verifies the compiler and Mathlib commits, hashes the upstream definition file, compiles both modules and replays them through the kernel. It checks the axiom sets of both named lemmas. The first lemma assumes right-half-plane nonvanishing. The second proves a moment inequality. Neither lemma is used in the unconditional finite-modulus theorem, which has a written proof. Sutherland records the independent checks of the announced upstream formal theorem. [Lean source](range/Oscillation.lean) [Replay record](range/evidence/lean-4.33.1.txt)
 
 The three root-level programs check the original modulus-11 result, including a selection of 850 positive ordinate brackets below height 128, twenty signed inequalities and a real-axis exclusion. The original version also contains the comparison with the entries for 11 and 22 in Zhao's Table 1. [Modulus-11 proof](PROOF.md) [Original two-page note](research-note.pdf) [Modulus-11 verification records](evidence) [First release](https://github.com/leecrossley/integrated-prime-errors-mod-11/releases/tag/v1.0.0)
