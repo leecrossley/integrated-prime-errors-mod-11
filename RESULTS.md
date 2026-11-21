@@ -1,6 +1,6 @@
 # Integrated prime-counting errors in progressions
 
-The [original modulus-11 study](README.md) and [extension across prime moduli](range/PROOF.md) are maintained together. The extension has its own [paper](range/paper.pdf), [certificate data](range/ordinates.tsv) and [replay instructions](README.md#verification).
+The [original modulus-11 study](README.md) and [extension across prime moduli](range/PROOF.md) are maintained together. The extension has its own [paper](range/paper.pdf), [certificate data](range/ordinates.tsv) and [replay instructions](README.md#reproduce-the-results).
 
 | Result | Source revision | Publication | Reviews |
 | --- | --- | --- | --- |
