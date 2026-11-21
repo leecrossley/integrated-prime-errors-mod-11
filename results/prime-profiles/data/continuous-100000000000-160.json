@@ -1,0 +1,32 @@
+{
+  "prime": 10009,
+  "limit": 100000000000,
+  "bits": 160,
+  "input_sha256": "cfff815e11409de0dcb246ad28de74cc2b77110316f92390d531b8244a07454c",
+  "intervals_checked": 2599392,
+  "classes_tested": 5,
+  "positive": {
+    "2205": {
+      "numerator": 60987381491,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.0004686337796149959 +/- 3.25e-20]"
+    },
+    "7228": {
+      "numerator": 80989802501,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.002243360288214020 +/- 3.05e-19]"
+    },
+    "9380": {
+      "numerator": 87406134157,
+      "denominator": 1,
+      "direction": "forward",
+      "profile": "[0.0003129497582608286 +/- 3.05e-20]"
+    }
+  },
+  "negative_throughout": [
+    148,
+    9100
+  ]
+}

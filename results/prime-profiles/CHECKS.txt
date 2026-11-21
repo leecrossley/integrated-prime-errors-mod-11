@@ -1,0 +1,78 @@
+Sign changes in many residue classes
+Lee Crossley, 21 November 2026
+Python 3.12.14, python-flint 0.9.0. All ball computations used outward rounding.
+
+Additional modulus, using the two public range implementations
+  python3 -B range/verify_range.py --start 10009 --stop 10009 --bits 112
+  python3 -B range/crosscheck_range.py --start 10009 --stop 10009 --bits 160
+precision: 112 bits
+prime moduli verified: 1 (10009 to 10009)
+reduced classes at these prime moduli: 10008
+certified ordinate brackets: 1
+family nonvanishing checks on closed ordinate intervals: 2
+amplitude exceeds 19/12 for every listed modulus
+analytic inequalities at q=673, q=1000 and q=8104 verified
+precision: 160 bits
+prime moduli verified by alternating sums: 1 (10009 to 10009)
+reduced classes at these prime moduli: 10008
+family interval exclusions rechecked: 2
+all endpoint signs and amplitudes verified
+
+With the original v2.0.0 implementations, a separate run also gave
+112-bit Hurwitz check: 2 intervals, amplitude [1.88561808097128418 +/- 6.36e-19]
+160-bit alternating-series check: both interval exclusions and endpoint signs pass
+q=10009, Conrey=9959, ordinate in (402441651 +/- 2)/2^44, dimension=3
+
+From the repository root
+  python3 -B results/prime-profiles/check_profiles.py
+q >= 10000, verified at 160 bits
+uniform lower bound for limsup E / q: [0.107716419280914101 +/- 3.69e-19]
+uniform lower bound for -liminf E / sqrt(q): [0.0194415406298844595 +/- 2.49e-20]
+both exceed the stated 1/10 and 1/60, respectively
+power-of-two margins at the endpoint: [0.300401273119133 +/- 7.27e-18] [0.0100215722433274 +/- 4.50e-17]
+integer check for 11 <= q <= 2000000: {2: 74411, 4: 74518} (148929 primes)
+q=10009, forward formula confirmed both margins in classes [2, 8]
+q=10037, forward formula confirmed both margins in classes [4, 16]
+q=10009, a=1258, 40 primes and no higher powers to 6000000
+all 385 consecutive blocks of 1 through 11 fail the bare test
+1 + log q + c_b: [-2.1995130617336610 +/- 3.12e-17]
+successful primes: [251483, 271501, 311537, 451663, 551753, 791969, 872041, 972131, 1052203, 1212347, 1292419, 1412527]
+corrected profile at y = 1611211: [1.0054033514740413 +/- 1.09e-17]
+q=1000003, all 10 residues and inverses are prime-power-free up to 9000027
+quadratic types: 4 squares, 6 nonsquares
+[1646, 106016, 203036, 243776, 318956, 376286, 545126, 639626, 782216, 908846]
+Salié formula: 1386 exact cyclotomic checks, including u = 0
+{"modulus": 11, "constant_checks": 20, "spectral_comparisons": 160, "brackets": 850, "absolute_tail_bound": "0.154"}
+{"prime": 10009, "first_scale": 1, "last_scale": 2000000, "scale_count": 65, "classes_tested": 10006, "classes_excluded_by_formula": [1, 10008], "positive": 9779, "negative": 10006, "both": 9779}
+{"modulus": 11, "constant_checks": 20, "spectral_comparisons": 160, "brackets": 850, "absolute_tail_bound": "0.154"}
+{"prime": 10009, "first_scale": 1, "last_scale": 2000000, "scale_count": 65, "classes_tested": 10006, "classes_excluded_by_formula": [1, 10008], "positive": 9779, "negative": 10006, "both": 9779}
+All five stages agree on every dyadic witness. Final classes: 148 and 9100.
+18,578,682 intervals per precision.
+
+Continuous certificate regeneration
+The --full option regenerates both chains and compares every JSON file. In the separate two-precision replay below, the input to the first stage was the certified grid data/prime-10009-128.json. Each following stage used the newly regenerated output from the preceding stage. All ten output files matched the published data byte for byte.
+q=10009, y<= 2000000, bits=128, classes tested=227, positive=6, strictly negative in both directions throughout=221, intervals checked=6518
+q=10009, y<= 200000000, bits=128, classes tested=221, positive=198, strictly negative in both directions throughout=23, intervals checked=135359
+q=10009, y<= 10000000000, bits=128, classes tested=23, positive=18, strictly negative in both directions throughout=5, intervals checked=811868
+q=10009, y<= 100000000000, bits=128, classes tested=5, positive=3, strictly negative in both directions throughout=2, intervals checked=2599392
+q=10009, y<= 1000000000000, bits=128, classes tested=2, positive=0, strictly negative in both directions throughout=2, intervals checked=15025545
+q=10009, y<= 2000000, bits=160, classes tested=227, positive=6, strictly negative in both directions throughout=221, intervals checked=6518
+q=10009, y<= 200000000, bits=160, classes tested=221, positive=198, strictly negative in both directions throughout=23, intervals checked=135359
+q=10009, y<= 10000000000, bits=160, classes tested=23, positive=18, strictly negative in both directions throughout=5, intervals checked=811868
+q=10009, y<= 100000000000, bits=160, classes tested=5, positive=3, strictly negative in both directions throughout=2, intervals checked=2599392
+q=10009, y<= 1000000000000, bits=160, classes tested=2, positive=0, strictly negative in both directions throughout=2, intervals checked=15025545
+
+Lean and kernel replay
+Use a built Mathlib checkout at revision 0df444a360eaa60ab8c11dca51a86af692955474, Lean 4.33.1
+(compiler 819816b2e0a3bf405af45ae5c7af2491d8f5bee6). From this result directory set
+  study=$(pwd)
+  build=$(mktemp -d)
+then change directory to that Mathlib checkout. For each module named below run
+  lake env lean -j1 -DautoImplicit=false -R "$study" -o "$build/$module.olean" "$study/$module.lean"
+  lake env sh -c 'export LEAN_PATH="$1:$LEAN_PATH"; exec leanchecker -v "$2"' sh "$build" "$module"
+Module: PrimeExcursions.
+'PrimeExcursions.single_prime_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PrimeExcursions.no_paired_powers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PrimeExcursions.later_term_not_power_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+replaying PrimeExcursions
+The compilation and the independent kernel replay exited 0. These lemmas check the one-prime threshold and two integer exclusions. The uniform prime-modulus conclusions have written analytic proofs.

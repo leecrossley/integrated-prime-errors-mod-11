@@ -1,0 +1,13 @@
+{
+  "prime": 10009,
+  "limit": 1000000000000,
+  "bits": 128,
+  "input_sha256": "30541df23e628a83b249919cc154f1e9413da8eeff977ee9a4aa132b95cca178",
+  "intervals_checked": 15025545,
+  "classes_tested": 2,
+  "positive": {},
+  "negative_throughout": [
+    148,
+    9100
+  ]
+}
