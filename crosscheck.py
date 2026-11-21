@@ -100,7 +100,7 @@ def crosscheck():
                     sums[a][side] += 2*((g2-arb(3)/4)*cos-2*g*sin)/denominator
     limit = 2_000_000
     omitted_bound = prime_mass_upper(eta, limit) - retained
-    require(omitted_bound > 0 and omitted_bound < arb(18)/100, "prime remainder too wide")
+    require(omitted_bound > 0 and omitted_bound < arb(17)/100, "prime remainder too wide")
     print(f"positive ordinates rechecked using Hurwitz zeta: {sum(map(len,rows.values()))}")
     print(f"prime powers sieved through: {limit}")
     print(f"upper estimate for unretained mass: {omitted_bound.str(10)}")
