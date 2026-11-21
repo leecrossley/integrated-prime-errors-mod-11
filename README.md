@@ -5,7 +5,7 @@ The integrated prime-counting error changes sign arbitrarily far out in **every 
 For $\pi(t;q,a)$ the number of primes up to $t$ in class $a$, define
 
 $$
-E_{q,a}(x)=\frac{\log x}{x^{3/2}}\int_2^x\bigl(\varphi(q)\pi(t;q,a)-\operatorname{li}(t)\bigr)\,dt.
+E_{q,a}(x)=\frac{\log x}{x^{3/2}}\int_2^x\bigl(\varphi(q)\pi(t;q,a)-\mathrm{li}(t)\bigr)\thinspace dt.
 $$
 
 For each of the twenty reduced classes across the two moduli,
