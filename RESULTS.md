@@ -10,7 +10,9 @@ The finite certificate now includes prime 10,009. The [prime profiles and combin
 
 ## Checking the collection
 
-Run `sh verify-collection.sh` from the repository root to check the result manifests. Each result’s README gives its mathematical replay and environment requirements. [Contribution and publication guidance](AGENTS.md)
+When a collection file changes, stage new paths with Git, then run `python3 tools/collection_manifest.py --write` to refresh `COLLECTION.sha256`.
+
+Run `sh verify-collection.sh` from the repository root to check the collection files and the manifests for every result directory. The root manifest covers `range/`. The numerical CI job replays the modulus-11 checks and both range calculations through 10,009. Each result’s README gives its mathematical replay and environment requirements. [Contribution and publication guidance](AGENTS.md)
 
 ## Review discussions at import
 

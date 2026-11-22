@@ -1,7 +1,7 @@
 precision: 112 bits
-prime moduli verified: 1225 (13 to 10007)
-reduced classes at these prime moduli: 5745150
-certified ordinate brackets: 1228
-family nonvanishing checks on closed ordinate intervals: 2765
+prime moduli verified: 1226 (13 to 10009)
+reduced classes at these prime moduli: 5755158
+certified ordinate brackets: 1229
+family nonvanishing checks on closed ordinate intervals: 2767
 amplitude exceeds 19/12 for every listed modulus
 analytic inequalities at q=673, q=1000 and q=8104 verified

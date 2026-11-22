@@ -24,7 +24,7 @@ every class in the stated range satisfies
 
 Thus the conclusion concerns arbitrarily large inputs $`x`$ at each modulus. Under the generalized Riemann hypothesis (GRH) for the inducing functions at that modulus, each of the two strict excursion sets has positive lower logarithmic density.
 
-[Original paper through 10,007](range/paper.pdf) · [Read the full proof](range/PROOF.md) · [Certificate data](range/ordinates.tsv) · [Verification records](range/evidence)
+[Original paper through 10,007](range/paper.pdf) · [Read the full proof](range/PROOF.md) · [Certificate data](range/ordinates.tsv) · [Full range transcripts](range/evidence) and [separate checks at 10,009](results/prime-profiles/CHECKS.txt#L5-L20)
 
 Under Dirichlet GRH the argument gives **both signs in class 1 for every prime modulus from 11 onward**. The normalised upper limit in that class exceeds $`q/2-8\log q-16/3`$ for $`q\ge1000`$. Under the same hypothesis the integral has positive excursions for $`-1`$ and the inverse of 2 at every prime from 11 onward, and for inverses of every prime power $`2\le b\le q/(40\log q)`$ when $`q\ge1000`$. The corollaries in this paragraph use `LFunction_ne_zero_of_half_lt_re`. [Exact Lean statements](https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Statements.lean#L6-L16)
 

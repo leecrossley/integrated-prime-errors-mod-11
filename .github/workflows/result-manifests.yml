@@ -10,3 +10,31 @@ jobs:
         with:
           persist-credentials: false
       - run: sh verify-collection.sh
+
+  numerical:
+    name: Replay prime-error certificates
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install the pinned arithmetic package
+        run: |
+          python3 -m venv "$RUNNER_TEMP/prime-errors"
+          "$RUNNER_TEMP/prime-errors/bin/pip" install -r requirements.txt
+      - name: Check the two full-range transcripts
+        run: |
+          python="$RUNNER_TEMP/prime-errors/bin/python"
+          "$python" range/verify_range.py --bits 112 > "$RUNNER_TEMP/hurwitz.txt"
+          diff -u range/evidence/hurwitz-112.txt "$RUNNER_TEMP/hurwitz.txt"
+          "$python" range/crosscheck_range.py --bits 128 > "$RUNNER_TEMP/alternating.txt"
+          diff -u range/evidence/alternating-128.txt "$RUNNER_TEMP/alternating.txt"
+      - name: Replay the modulus-11 and table calculations
+        run: |
+          python="$RUNNER_TEMP/prime-errors/bin/python"
+          "$python" -m range.check_identity
+          "$python" verify.py --bits 128
+          "$python" crosscheck.py --bits 160
+          "$python" real_axis.py --bits 128
+          "$python" evidence/table1_threshold.py
