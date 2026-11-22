@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Cite the collection release listed under references for this paper."
+message: "For either paper, cite its title and the DOI of the shared collection edition. The edition index links to each PDF."
 title: "Sign changes in many residue classes"
 authors:
   - family-names: Crossley
@@ -16,6 +16,14 @@ references:
     version: "v2.1.2"
     doi: 10.5281/zenodo.24442719
     url: https://github.com/leecrossley/integrated-prime-errors-mod-11/releases/tag/v2.1.2
+  - type: software
+    title: "Integrated prime-counting errors for prime moduli"
+    authors:
+      - family-names: Crossley
+        given-names: Lee
+    version: "v2.1.1"
+    doi: 10.5281/zenodo.24425209
+    url: https://github.com/leecrossley/integrated-prime-errors-mod-11/releases/tag/v2.1.1
   - type: software
     title: "Integrated prime-counting errors in arithmetic progressions"
     authors:

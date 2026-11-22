@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: If you use this work, please cite it as below.
 title: "Integrated prime-counting errors for prime moduli"
-abstract: "Integrated prime-counting errors in arithmetic progressions. Unconditional sign changes for every reduced class at prime moduli from 11 through 10,009."
+abstract: "The integrated prime-counting error changes sign arbitrarily far out in every reduced residue class modulo each prime from 11 through 10,009. Under Dirichlet GRH, a positive proportion of classes change sign at every prime modulus from 11 onwards. Under the same hypothesis the forward test in class 1,258 modulo 10,009 needs exactly twelve progression terms."
 authors:
   - family-names: Crossley
     given-names: Lee
