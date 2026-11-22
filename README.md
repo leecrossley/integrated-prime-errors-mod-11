@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24410803.svg)](https://doi.org/10.5281/zenodo.24410803)
 
-Published edition 2.1.1 has DOI [10.5281/zenodo.24425209](https://doi.org/10.5281/zenodo.24425209). The [edition index](RESULTS.md#edition-dois) lists the other papers.
+Published edition 2.1.2 has DOI [10.5281/zenodo.24442719](https://doi.org/10.5281/zenodo.24442719). The [edition index](RESULTS.md#edition-dois) lists the other papers.
 
 **Research collection.** [Browse all results on integrated prime-counting errors in progressions](RESULTS.md), including proofs, certificates and original citations.
 
