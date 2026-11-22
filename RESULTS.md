@@ -6,7 +6,7 @@ The [original modulus-11 study](README.md) and [extension across prime moduli](r
 | --- | --- | --- | --- |
 | [Integrated prime-counting errors for prime moduli](README.md) | [630ca6965f](https://github.com/leecrossley/integrated-prime-errors-mod-11/tree/630ca6965f98063a7d7fed6d8009223f7201bf33) | [Releases](https://github.com/leecrossley/integrated-prime-errors-mod-11/releases) · [DOI](https://doi.org/10.5281/zenodo.24410803) | [Issues](https://github.com/leecrossley/integrated-prime-errors-mod-11/issues) · [PRs](https://github.com/leecrossley/integrated-prime-errors-mod-11/pulls) |
 
-The finite certificate now includes prime 10,009. The [prime profiles and combined-prime tests](results/prime-profiles/) also give a positive proportion of sign-changing classes at every prime modulus under Dirichlet GRH, and, under the same hypothesis, an exact twelve-term test modulo 10,009. [Release and verification](https://github.com/leecrossley/integrated-prime-errors-mod-11/releases/tag/v2.1.1)
+The finite certificate now includes prime 10,009. The [prime profiles and combined-prime tests](results/prime-profiles/) also give a positive proportion of sign-changing classes at every prime modulus under Dirichlet GRH, and, under the same hypothesis, an exact twelve-term test modulo 10,009. [Release and verification](https://github.com/leecrossley/integrated-prime-errors-mod-11/releases/tag/v2.1.2)
 
 ## Checking the collection
 

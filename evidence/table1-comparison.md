@@ -1,6 +1,6 @@
 # Zhao’s Table 1
 
-Under GRH, a calculation retaining the prime-square coefficient from Zhao’s equation (33) reproduces all 63 pairs printed in Table 1. For moduli 2 through 120 it gives one further pair, $(6,1)$. Equation (35) has a different prime-square coefficient. For moduli 11 and 22, the difference decides which side of the test the five printed classes fall on. The public notebooks implement Theorems 3 and 4. The program used for Table 1 would establish how Zhao obtained the entries. [Equations (33) and (35)](https://arxiv.org/html/2411.18903v2#S7) [Table 1](https://arxiv.org/html/2411.18903v2#S8.T1) [Published notebooks](https://github.com/skyfishzhao/RH-and-Mertens-Theorems/tree/b040d47f1d1c0541701c089d0de76fdbd2604102)
+Under GRH, a calculation retaining the prime-square coefficient from Zhao’s equation (33) reproduces all 63 pairs printed in Table 1. For moduli 2 through 120 it gives one further pair, $(6,1)$. Equation (35) has a different prime-square coefficient. For moduli 11 and 22, the difference decides which side of the test the five printed classes fall on. The public notebooks implement Theorems 3 and 4. The program used for Table 1 would establish how Zhao obtained the entries. [Equation (33)](https://arxiv.org/html/2411.18903v2#S7.E33) [Equation (35)](https://arxiv.org/html/2411.18903v2#S8.E35) [Table 1](https://arxiv.org/html/2411.18903v2#S8.T1) [Published notebooks](https://github.com/skyfishzhao/RH-and-Mertens-Theorems/tree/b040d47f1d1c0541701c089d0de76fdbd2604102)
 
 ## Prime squares
 
