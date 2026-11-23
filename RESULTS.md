@@ -18,7 +18,7 @@ Run `sh verify-collection.sh` from the repository root to check the collection f
 
 GitHub shows the current status and subsequent replies at each original link. Review notes posted from the author’s account record checks made by or for the author. They are not independent referee reports.
 
-- [integrated-prime-errors-mod-11 issue 4](https://github.com/leecrossley/integrated-prime-errors-mod-11/issues/4) — v2.0.0: state the status of Alpöge's GRH result, and make the Lean check enforce its axioms
+- [integrated-prime-errors-mod-11 issue 4](https://github.com/leecrossley/integrated-prime-errors-mod-11/issues/4) — v2.0.0: state the status of the GRH input, and make the Lean check enforce its axioms
 
 ## Edition DOIs
 
